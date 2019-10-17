@@ -9,7 +9,7 @@ categories: #分类(分层)
 comment: false #是否开启评论功能
 top: 1 #置顶层级(数字越大，优先级越高)
 repo: 禁止种太阳 | eBlog #用户名 | 仓库名
-src: //i.loli.net/2017/12/12/5a2fd18a74471.jpg #主页摘要缩略图(外链以及相对资源均可)
+src: 
 ```
 # MySQL
 MySQL 是一种关系型数据库，在Java企业级开发中非常常用，因为 MySQL
