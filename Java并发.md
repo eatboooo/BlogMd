@@ -7,7 +7,7 @@ categories:
 tags:
 - Java
 - 并发
-src: //eatboooo.gitee.io/eblog/img/background/jvm_thread_h.png
+src: //eatboooo.gitee.io/img/background/jvm_thread_h.png
 ---
 
 # Java并发
@@ -32,7 +32,7 @@ src: //eatboooo.gitee.io/eblog/img/background/jvm_thread_h.png
 
   - 进程是一个实体，拥有独立的资源；而同一个进程中的多个线程共享进程的资源。
 
-  - ![JVM_thread 概览](https://eatboooo.gitee.io/eblog/img/thumb/jvm_thread.png)
+  - ![JVM_thread 概览](https://eatboooo.gitee.io/img/thumb/jvm_thread.png)
 
 
 
@@ -65,8 +65,8 @@ src: //eatboooo.gitee.io/eblog/img/background/jvm_thread_h.png
 ### 1.4.并发与并行的区别是什么？？
 - 并行(parallel)：指在同一时刻，有多条指令在多个处理器上同时执行。所以无论从微观还是从宏观来看，二者都是一起执行的。
 - 并发(concurrency)：指在同一时刻只能有一条指令执行，但多个进程指令被快速的轮换执行，使得在宏观上具有多个进程同时执行的效果，但在微观上并不是同时执行的，只是把时间分成若干段，使多个进程快速交替的执行。
-- ![并发-Concurrency](https://eatboooo.gitee.io/eblog/img/thumb/Concurrent.jpg)
-- ![并行-Parallel](https://eatboooo.gitee.io/eblog/img/thumb/Parallel.jpg)
+- ![并发-Concurrency](https://eatboooo.gitee.io/img/thumb/Concurrent.jpg)
+- ![并行-Parallel](https://eatboooo.gitee.io/img/thumb/Parallel.jpg)
 
 ### 1.5.如何让正在运行的线程暂停一段时间？
 - 我们可以使用 Thread 类的 sleep() 方法让线程暂停一段时间。

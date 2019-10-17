@@ -6,7 +6,7 @@ categories:
 tags:
 - MySQL
 - 数据库
-src: //eatboooo.gitee.io/eblog/img/background/MySQL_h.png
+src: //eatboooo.gitee.io/img/background/MySQL_h.png
 description: 关于MySQL的一些小知识点 #次标题
 ---
 
@@ -26,7 +26,7 @@ GPL(General Public License)
 查看存储引擎
 > show engines;
 
-![查看存储引擎](https://eatboooo.gitee.io/eblog/img/thumb/show_engines.jpg)
+![查看存储引擎](https://eatboooo.gitee.io/img/thumb/show_engines.jpg)
 
 其他命令 
 ```
@@ -153,7 +153,7 @@ MySQL InnoDB 存储引擎的默认支持的隔离级别是 REPEATABLE-READ（可
 
 `SELECT @@tx_isolation; ` 
 
-![SELECT @@tx_isolation;](https://eatboooo.gitee.io/eblog/img/thumb/select_@@tx_isolation.jpg)
+![SELECT @@tx_isolation;](https://eatboooo.gitee.io/img/thumb/select_@@tx_isolation.jpg)
 
 这里需要注意的是：与 SQL 标准不同的地方在于 InnoDB 存储引擎在 REPEATABLE-READ（可重读） 事务隔离级别下使用的是Next-Key Lock 锁算法，因此可以避免幻读的产生，这与其他数据库系统(如 SQL Server) 是不同的。所以说InnoDB 存储引擎的默认支持的隔离级别是 REPEATABLE-READ（可重读） 已经可以完全保证事务的隔离性要求，即达到了 SQL标准的 SERIALIZABLE(可串行化) 隔离级别。因为隔离级别越低，事务请求的锁越少，所以大部分数据库系统的隔离级别都是 READ-COMMITTED(读取提交内容) ，但是你要知道的是InnoDB 存储引擎默认使用 REPEAaTABLE-READ（可重读） 并不会有任何性能损失。
 
@@ -193,12 +193,12 @@ InnoDB 存储引擎在 分布式事务 的情况下一般会用到 SERIALIZABLE(
 2. 读/写分离  
    经典的数据库拆分方案，主库负责写，从库负责读；
 3. 垂直分区  
-**根据数据库里面数据表的相关性进行拆分。 例如，用户表中既有用户的登录信息又有用户的基本信息，可以将用户表拆分成两个单独的表，甚至放到单独的库做分库。**
-
-    简单来说垂直拆分是指数据表列的拆分，把一张列比较多的表拆分为多张表。
-    如下图所示，这样来说大家应该就更容易理解了。 
-    
-    ![垂直拆分](https://eatboooo.gitee.io/eblog/img/thumb/vertical_partition.jpg)
+   **根据数据库里面数据表的相关性进行拆分。
+   例如，用户表中既有用户的登录信息又有用户的基本信息，可以将用户表拆分成两个单独的表，甚至放到单独的库做分库。**
+   
+   简单来说垂直拆分是指数据表列的拆分，把一张列比较多的表拆分为多张表。
+   如下图所示，这样来说大家应该就更容易理解了。  
+   ![垂直拆分](https://eatboooo.gitee.io/img/thumb/vertical_partition.jpg)
     
    -  垂直拆分的优点：可以使得列数据变小，在查询时减少读取的Block数，减少I/O次数。此外，垂直分区可以简化表的结构，易于维护。
    -  垂直拆分的缺点： 主键会出现冗余，需要管理冗余列，并会引起Join操作，可以通过在应用层进行Join来解决。此外，垂直分区会让事务变得更加复杂；
@@ -207,7 +207,7 @@ InnoDB 存储引擎在 分布式事务 的情况下一般会用到 SERIALIZABLE(
    **保持数据表结构不变，通过某种策略存储数据分片。这样每一片数据分散到不同的表或者库中，达到了分布式的目的。
    水平拆分可以支撑非常大的数据量。**
    水平拆分是指数据表行的拆分，表的行数超过200万行时，就会变慢，这时可以把一张的表的数据拆成多张表来存放。举个例子：我们可以将用户信息表拆分成多个用户信息表，这样就可以避免单一表数据量过大对性能造成影响。  
-   ![水平拆分](https://eatboooo.gitee.io/eblog/img/thumb/horizontal_partition.jpg)
+   ![水平拆分](https://eatboooo.gitee.io/img/thumb/horizontal_partition.jpg)
     
     水平拆分可以支持非常大的数据量。需要注意的一点是：分表仅仅是解决了单一表数据过大的问题，但由于表的数据还是在同一台机器上，其实对于提升MySQL并发能力没有什么意义，所以 **水平拆分最好分库** 。
 
