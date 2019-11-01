@@ -15,9 +15,9 @@ description: 使用redis+cookie完成登录状态的保持  #次标题
 ### 连接数据库
 首先建立数据库连接，用于登录校验以及注册添加。
 > db_config.php
-```
+```php
 header("Content-type: text/html; charset=utf-8");
-$conn = new mysqli('eatboooo.cn','root','root_eatboooo','develop_test');
+$conn = new mysqli('eatboooo.cn','root','*****','develop_test');
 if ($conn->connect_error) {
     echo '数据库连接失败！';
     exit(0);
@@ -26,17 +26,17 @@ if ($conn->connect_error) {
 ### 连接redis
 连接redis，用于储存md5随机产生的cookieId，用于多台服务器之前的登录校验，用于保持登录状态。
 > re_config.php
-```
+```php
 header("Content-type: text/html; charset=utf-8");
 $redis = new Redis();
 $redis->connect('eatboooo.cn', 6379); //连接Redis
-$redis->auth('root_eatboooo'); //密码验证
+$redis->auth('********'); //密码验证
 $redis->select(1);//选择数据库1
 ```
 ### 登录实现
 首先是简单的前端From表单。
 > login.html
-```
+```html
 <form action="../Interface/LoginInterface.php" method="post">
     <div>
         <p>用户名：</p>
@@ -55,7 +55,7 @@ $redis->select(1);//选择数据库1
 ```
 前端的表单提交到后端验证,同时记得对明文密码进行加密处理。
 > LoginInterface.php
-```
+```php
 include('../config/db_config.php');
 include('../config/re_config.php');
 $userId = $_POST['userId'];
@@ -89,7 +89,7 @@ if ($number) {
 ### 注册实现
 编写前端简单的注册表单。
 > regist.html
-```
+```html
 <form action="../Interface/RegistInterface.php" method="post">
     <div class="psw">
         <p class="psw-p1">用户名</p>
@@ -118,7 +118,7 @@ if ($number) {
 </form>
 ```
 后端操作mysql实现注册,注意插入的数据类型是否与数据库中的表中的数据类型一致。
-```
+```php
 include('../config/db_config.php');
 $userName = $_POST['userName'];
 $userPassword = md5($_POST['userPassword']); //md5对明文密码进行加密
@@ -143,7 +143,7 @@ if ($number) {
 ### 校验实现
 拿到cookie中的cookieID，查看服务器上redis中是否存在。
 > check.php
-```
+```php
 include('../config/re_config.php');
 if ($redis->get($_COOKIE["user"])) {
     $msg = json_decode($redis->get($_COOKIE["user"]));
@@ -152,3 +152,4 @@ if ($redis->get($_COOKIE["user"])) {
     echo "您害妹登录";
 }
 ```
+
