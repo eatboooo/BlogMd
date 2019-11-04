@@ -86,7 +86,7 @@ src: //eatboooo.gitee.io/img/background/jvm_thread_h.png
 时间分片是指将可用的 CPU 时间分配给可用的 Runnable 线程的过程。
 
 分配 CPU 时间可以基于线程优先级或者线程等待的时间。线程调度并不受到 Java
-虚拟机控制，所以由应用程序来控制它是更好的选择（也就是说不要让你的程序依赖于线程的优先级）。
+虚拟机控制，所以由应用程序来控制它是更好的选择（也就是说不要让你的程序依赖于线程的优先级）。(Java线程_9中有说明)
 
 ### 1.8.在多线程中，什么是上下文切换(context-switching)？
 上下文切换是存储和恢复 CPU 状态的过程，它使得线程执行能够从中断点恢复执行。上下文切换是多任务操作系统和多线程环境的基本特征。  
@@ -98,3 +98,10 @@ src: //eatboooo.gitee.io/img/background/jvm_thread_h.png
 分析死锁，我们需要查看 Java 应用程序的线程转储。我们需要找出那些状态为 BLOCKED 的线程和他们等待的资源。每个资源都有一个唯一的 id，用这个 id 我们可以找出哪些线程已经拥有了它的对象锁。
 
 避免嵌套锁，只在需要的地方使用锁和避免无限期等待是避免死锁的通常办法。
+
+---
+此博客参考资料：  
++ [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide)
++ [CyC2018/CS-Notes](https://github.com/CyC2018/CS-Notes)
++ [dunwu/javacore](https://github.com/dunwu/javacore)
++ [crossoverJie/JCSprout](https://github.com/crossoverJie/JCSprout)

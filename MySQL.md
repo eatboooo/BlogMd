@@ -231,5 +231,5 @@ InnoDB 存储引擎在 分布式事务 的情况下一般会用到 SERIALIZABLE(
 
 ---
 此博客参考资料：  
-    Snailclimb / JavaGuide  
-    CyC2018 / CS-Notes
++ [Snailclimb/JavaGuide](https://github.com/Snailclimb/JavaGuide)
++ [CyC2018/CS-Notes](https://github.com/CyC2018/CS-Notes)
