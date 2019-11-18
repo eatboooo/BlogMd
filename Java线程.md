@@ -9,7 +9,7 @@ tags:
 - Java
 - 并发
 - 线程
-src: //111.231.250.175/img/background/Java_thread_h.jpg
+src: //eatboooo.gitee.io/img/background/Java_thread_h.jpg
 ---
 # 线程基础
 Java 并发中线程的基础知识整理。  

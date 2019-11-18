@@ -6,7 +6,7 @@ categories:
 tags:
 - PHP
 - 登录
-src: //111.231.250.175/img/background/PHP_login_h.png
+src: //eatboooo.gitee.io/img/background/PHP_login_h.png
 description: 使用redis+cookie完成登录状态的保持  #次标题
 ---
 # PHP单点登录
