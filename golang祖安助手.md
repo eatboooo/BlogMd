@@ -6,7 +6,7 @@ categories:
 tags:
 - golang
 - 脚本
-src: //111.231.250.175/img/background/network_knowledge_h.jpg
+src: //111.231.250.175/img/background/golong_zaun_h.jpg
 ---
 # 祖安助手
 分为两个版本
