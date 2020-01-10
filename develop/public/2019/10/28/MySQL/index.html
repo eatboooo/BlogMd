@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    
+    <title>MySQL | EatbooooBlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="MySQL,数据库">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.4">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":null,"app_key":null,"icon":false}'),
+            v: JSON.parse('{"enable":false,"appid":null,"appkey":null,"notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"codefine","repo":"gitment","oauth":{"client_id":null,"client_secret":null},"perPage":10}'),
+            d: JSON.parse('{"app_id":null}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Eatboooo</h5>
+          <a href="mailto:571241210@qq.com" title="571241210@qq.com" class="mail">
+            
+              <span>5</span>
+            
+              <span>7</span>
+            
+              <span>1</span>
+            
+              <span>2</span>
+            
+              <span>4</span>
+            
+              <span>1</span>
+            
+              <span>2</span>
+            
+              <span>1</span>
+            
+              <span>0</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://gitee.com/eatboooo" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+              <li>
+                <a href="https://weibo.com/1822828387/profile?rightmod=1&amp;wvr=6&amp;mod=personinfo" target="_blank">
+                  <i class="icon icon-lg icon-weibo"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>MySQL</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">MySQL</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-28T11:51:34.111Z" itemprop="datePublished" class="page-time">
+  2019-10-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小知识/">小知识</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小知识/MySQL/">MySQL</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-MySQL"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">MySQL</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-28 19:51:34" datetime="2019-10-28T11:51:34.111Z"  itemprop="datePublished">2019-10-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小知识/">小知识</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小知识/MySQL/">MySQL</a></li></ul></li></ul>
+
+
+
+            
+
+            
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>MySQL 是一种关系型数据库，在Java企业级开发中非常常用，因为 MySQL<br>是开源免费的，并且方便扩展。阿里巴巴数据库系统也大量用到了<br>MySQL，因此它的稳定性是有保障的。MySQL是开放源代码的，因此任何人都可以在<br>GPL(General Public License)<br>的许可下下载并根据个性化的需要对其进行修改。MySQL的默认端口号是3306。</p>
+<h2 id="常用命令-语句后面有分号"><a href="#常用命令-语句后面有分号" class="headerlink" title="常用命令(语句后面有分号)"></a>常用命令(语句后面有分号)</h2><p>启动MySQL服务</p>
+<blockquote>
+<p>net start mysql</p>
+</blockquote>
+<p>连接数据库</p>
+<blockquote>
+<p>mysql -h localhost -u root -p</p>
+</blockquote>
+<p>查看存储引擎</p>
+<blockquote>
+<p>show engines;</p>
+</blockquote>
+<figure class="image-box">
+                <a rel=MySQL href="https://eatboooo.gitee.io/img/thumb/show_engines.jpg" title="查看存储引擎" data-fancybox="images"><img src="https://eatboooo.gitee.io/img/thumb/show_engines.jpg" alt="查看存储引擎" title class></a>
+                <p>查看存储引擎</p>
+            </figure>
+
+<p>其他命令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">show databases;                  --显示所有数据库</span><br><span class="line">create database hellotest;       --创建数据库hellotest</span><br><span class="line">use hellotest;                   --使用hellotest数据库</span><br><span class="line">create table student(            --创建student</span><br><span class="line">       id int primary key auto_increment,    </span><br><span class="line">       name varchar(20),</span><br><span class="line">       pwd varchar(20),</span><br><span class="line">       enterdate date,</span><br><span class="line">       score double(4,1)</span><br><span class="line">);</span><br><span class="line">show tables;                     --显示所有的表格</span><br><span class="line">desc student;                    --显示表格结构</span><br><span class="line">insert into student values(default,&apos;zhangsan&apos;,&apos;123&apos;,&apos;2019-10-17 10:23:48&apos;,20);</span><br><span class="line">select * from student;</span><br><span class="line">drop table student;              --删除表格</span><br><span class="line">drop database hellotest;         --删除数据库</span><br><span class="line">--exit; 或者 quit;                --退出程序</span><br><span class="line">--net stop mysql;                --关闭mysql服务</span><br></pre></td></tr></table></figure>
+
+<h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><p>从show engines；命令我们可以查看出 MySQL<br>当前默认的存储引擎是InnoDB,并且在5.7版本所有的存储引擎中只有 InnoDB<br>是事务性存储引擎，也就是说只有 InnoDB 支持事务。</p>
+<h3 id="MyISAM和InnoDB区别"><a href="#MyISAM和InnoDB区别" class="headerlink" title="MyISAM和InnoDB区别"></a>MyISAM和InnoDB区别</h3><ul>
+<li><p>MyISAM是MySQL的默认数据库引擎（5.5版之前）。虽然性能极佳，而且提供了大量的特性，包括全文索引、压缩、空间函数等，但MyISAM不支持事务和行级锁，而且最大的缺陷就是崩溃后无法安全恢复。不过，5.5版本之后，MySQL引入了InnoDB（事务性数据库引擎），MySQL<br>5.5版本后默认的存储引擎为InnoDB。</p>
+</li>
+<li><p>大多数时候我们使用的都是 InnoDB 存储引擎，但是在某些情况下使用 MyISAM 也是合适的比如读密集的情况下。（如果你不介意 MyISAM 崩溃恢复问题的话）。</p>
+</li>
+<li><p>两者对比</p>
+<ul>
+<li><p>是否支持行级锁 : MyISAM 只有表级锁(table-level locking)，而InnoDB 支持行级锁(row-level locking)和表级锁,默认为行级锁。</p>
+</li>
+<li><p>是否支持事务和崩溃后的安全恢复： MyISAM 强调的是性能，每次查询具有原子性,其执行速度比InnoDB类型更快，但是不提供事务支持。但是InnoDB 提供事务支持事务，外部键等高级数据库功能。 具有事务(commit)、回滚(rollback)和崩溃修复能力(crash recovery capabilities)的事务安全(transaction-safe (ACID compliant))型表。</p>
+</li>
+<li><p>是否支持外键： MyISAM不支持，而InnoDB支持。</p>
+</li>
+<li><p>是否支持MVCC ：仅 InnoDB 支持。应对高并发事务,<br>MVCC比单纯的加锁更高效;MVCC只在 READ COMMITTED 和 REPEATABLE READ<br>两个隔离级别下工作;MVCC可以使用 乐观(optimistic)锁 和<br>悲观(pessimistic)锁来实现;各数据库中MVCC实现并不统一。 推荐阅读： <a href="https://segmentfault.com/a/1190000012650596" target="_blank" rel="noopener">MySQL-InnoDB-MVCC多版本并发控制</a></p>
+<h4 id="阿里数据库内核’2017-12’月报中对MVCC的解释是"><a href="#阿里数据库内核’2017-12’月报中对MVCC的解释是" class="headerlink" title="阿里数据库内核’2017/12’月报中对MVCC的解释是:"></a>阿里数据库内核’2017/12’月报中对MVCC的解释是:</h4><blockquote>
+<p>多版本控制:<br>指的是一种提高并发的技术。最早的数据库系统，只有读读之间可以并发，读写，写读，写写都要阻塞。引入多版本之后，只有写写之间相互阻塞，其他三种操作都可以并行，这样大幅度提高了InnoDB的并发度。在内部实现中，与Postgres在数据行上实现多版本不同，InnoDB是在undolog中实现的，通过undolog可以找回数据的历史版本。找回的数据历史版本可以提供给用户读(按照隔离级别的定义，有些读请求只能看到比较老的数据版本)，也可以在回滚的时候覆盖数据页上的数据。在InnoDB内部中，会记录一个全局的活跃读写事务数组，其主要用来判断事务的可见性。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>《MySQL高性能》上面有一句话这样写到:</p>
+<blockquote>
+<p>不要轻易相信“MyISAM比InnoDB快”之类的经验之谈，这个结论往往不是绝对的。在很多我们已知场景中，InnoDB的速度都可以让MyISAM望尘莫及，尤其是用到了聚簇索引，或者需要访问的数据都可以放入内存的应用。</p>
+</blockquote>
+<p>一般情况下我们选择 InnoDB<br>都是没有问题的，但是某些情况下你并不在乎可扩展能力和并发能力，也不需要事务支持，也不在乎崩溃后的安全恢复问题的话，选择MyISAM也是一个不错的选择。但是一般情况下，我们都是需要考虑到这些问题的。</p>
+<h2 id="字符集及校对规则"><a href="#字符集及校对规则" class="headerlink" title="字符集及校对规则"></a>字符集及校对规则</h2><p><strong>字符集指的是一种从二进制编码到某类字符符号的映射</strong>。校对规则则是指某种字符集下的排序规则。MySQL中每一种字符集都会对应一系列的校对规则。</p>
+<p>MySQL采用的是类似继承的方式指定字符集的默认值，每个数据库以及每张数据表都有自己的默认值，他们逐层继承。比如：某个库中所有表的默认字符集将是该数据库所指定的字符集（这些表在没有指定字符集的情况下，才会采用默认字符集） PS：整理自《Java工程师修炼之道》</p>
+<p>详细内容可以参考： <a href="https://www.cnblogs.com/geaozhang/p/6724393.html#MySQLyuzifuji" target="_blank" rel="noopener">MySQL字符集及校对规则的理解</a></p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>MySQL索引使用的数据结构主要有BTree索引 和 哈希索引 。对于哈希索引来说，底层的数据结构就是哈希表，因此在绝大多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快；其余大部分场景，建议选择BTree索引。</p>
+<ul>
+<li><p>MySQL的BTree索引使用的是B树中的B+Tree，但对于主要的两种存储引擎的实现方式是不同的。</p>
+</li>
+<li><p>MyISAM: B+Tree叶节点的data域存放的是数据记录的地址。在索引检索的时候，首先按照B+Tree搜索算法搜索索引，如果指定的Key存在，则取出其 data 域的值，然后以 data 域的值为地址读取相应的数据记录。这被称为“非聚簇索引”。</p>
+</li>
+<li><p>InnoDB: 其数据文件本身就是索引文件。相比MyISAM，索引文件和数据文件是分离的，其表数据文件本身就是按B+Tree组织的一个索引结构，树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。这被称为“聚簇索引（或聚集索引）”。而其余的索引都作为辅助索引，辅助索引的data域存储相应记录主键的值而不是地址，这也是和MyISAM不同的地方。在根据主索引搜索时，直接找到key所在的节点即可取出数据；在根据辅助索引查找时，则需要先取出主键的值，再走一遍主索引。 因此，在设计表的时候，不建议使用过长的字段作为主键，也不建议使用非单调的字段作为主键，这样会造成主索引频繁分裂。 PS：整理自《Java工程师修炼之道》</p>
+</li>
+<li><p>更多请看<a href>MySQL索引</a>。</p>
+<h2 id="查询缓存的使用"><a href="#查询缓存的使用" class="headerlink" title="查询缓存的使用"></a>查询缓存的使用</h2><blockquote>
+<p>执行查询语句的时候，会先查询缓存。不过，MySQL 8.0 版本后移除，因为这个功能不太实用</p>
+</blockquote>
+</li>
+</ul>
+<p>my.cnf加入以下配置，重启MySQL开启查询缓存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">query_cache_type=1</span><br><span class="line">query_cache_size=600000</span><br></pre></td></tr></table></figure>
+
+<p>MySQL执行以下命令也可以开启查询缓存 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set global  query_cache_type=1;</span><br><span class="line">set global  query_cache_size=600000;</span><br></pre></td></tr></table></figure>
+
+<p>如上，开启查询缓存后在同样的查询条件以及数据情况下，会直接在缓存中返回结果。这里的查询条件包括查询本身、当前要查询的数据库、客户端协议版本号等一些可能影响结果的信息。因此任何两个查询在任何字符上的不同都会导致缓存不命中。此外，如果查询中包含任何用户自定义函数、存储函数、用户变量、临时表、MySQL库中的系统表，其查询结果也不会被缓存。</p>
+<p>缓存建立之后，MySQL的查询缓存系统会跟踪查询中涉及的每张表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</p>
+<p>缓存虽然能够提升数据库的查询性能，但是缓存同时也带来了额外的开销，每次查询后都要做一次缓存操作，失效后还要销毁。<br>因此，开启缓存查询要谨慎，尤其对于写密集的应用来说更是如此。如果开启，要注意合理控制缓存空间大小，一般来说其大小设置为几十MB比较合适。此外，还可以通过sql_cache和sql_no_cache来控制某个查询语句是否需要缓存：</p>
+<p><code>select sql_no_cache count(*) from usr;</code> </p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><strong>事务是逻辑上的一组操作，要么都执行，要么都不执行。</strong></p>
+<p>事务最经典也经常被拿出来说例子就是转账了。假如小明要给小红转账1000元，这个转账会涉及到两个关键操作就是：将小明的余额减少1000元，将小红的余额增加1000元。万一在这两个操作之间突然出现错误比如银行系统崩溃，导致小明余额减少而小红的余额没有增加，这样就不对了。事务就是保证这两个关键操作要么都成功，要么都要失败。</p>
+<h3 id="事物的四大特性-ACID"><a href="#事物的四大特性-ACID" class="headerlink" title="事物的四大特性(ACID)"></a>事物的四大特性(ACID)</h3><ol>
+<li>原子性（Atomicity）： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；</li>
+<li>一致性（Consistency）：<br>执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；</li>
+<li>隔离性（Isolation）：<br>并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；</li>
+<li>持久性（Durability）：<br>一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。<h3 id="并发事务带来哪些问题"><a href="#并发事务带来哪些问题" class="headerlink" title="并发事务带来哪些问题?"></a>并发事务带来哪些问题?</h3>在典型的应用程序中，多个事务并发运行，经常会操作相同的数据来完成各自的任务（多个用户对同一数据进行操作）。并发虽然是必须的，但可能会导致以下的问题。</li>
+</ol>
+<ul>
+<li>脏读（Dirty read）: 当一个事务正在访问数据并且对数据进行了修改，而这种修改还没有提交到数据库中，这时另外一个事务也访问了这个数据，然后使用了这个数据。因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是“脏数据”，依据“脏数据”所做的操作可能是不正确的。</li>
+<li>丢失修改（Lost to modify）: 指在一个事务读取一个数据时，另外一个事务也访问了该数据，那么在第一个事务中修改了这个数据后，第二个事务也修改了这个数据。这样第一个事务内的修改结果就被丢失，因此称为丢失修改。 例如：事务1读取某表中的数据A=20，事务2也读取A=20，事务1修改A=A-1，事务2也修改A=A-1，最终结果A=19，事务1的修改被丢失。</li>
+<li>不可重复读（Unrepeatableread）: 指在一个事务内多次读同一数据。在这个事务还没有结束时，另一个事务也访问该数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改导致第一个事务两次读取的数据可能不太一样。这就发生了在一个事务内两次读到的数据是不一样的情况，因此称为不可重复读。</li>
+<li>幻读（Phantom read）: 幻读与不可重复读类似。它发生在一个事务（T1）读取了几行数据，接着另一个并发事务（T2）插入了一些数据时。在随后的查询中，第一个事务（T1）就会发现多了一些原本不存在的记录，就好像发生了幻觉一样，所以称为幻读。</li>
+</ul>
+<h4 id="不可重复读和幻读区别："><a href="#不可重复读和幻读区别：" class="headerlink" title="不可重复读和幻读区别："></a>不可重复读和幻读区别：</h4><p>不可重复读的重点是修改比如多次读取一条记录发现其中某些列的值被修改，幻读的重点在于新增或者删除比如多次读取一条记录发现记录增多或减少了。</p>
+<h3 id="事务隔离级别有哪些-MySQL的默认隔离级别是"><a href="#事务隔离级别有哪些-MySQL的默认隔离级别是" class="headerlink" title="事务隔离级别有哪些?MySQL的默认隔离级别是?"></a>事务隔离级别有哪些?MySQL的默认隔离级别是?</h3><h4 id="SQL-标准定义了四个隔离级别："><a href="#SQL-标准定义了四个隔离级别：" class="headerlink" title="SQL 标准定义了四个隔离级别："></a>SQL 标准定义了四个隔离级别：</h4><ul>
+<li>READ-UNCOMMITTED(读取未提交)： 最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读。</li>
+<li>READ-COMMITTED(读取已提交)： 允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生。</li>
+<li>REPEATABLE-READ(可重复读)： 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</li>
+<li>SERIALIZABLE(可串行化)： 最高的隔离级别，完全服从ACID的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻影读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>READ-UNCOMMITTED</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>READ-COMMITTED</td>
+<td>✔</td>
+<td>✔</td>
+<td>✘</td>
+</tr>
+<tr>
+<td>REPEATABLE-READ</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+</tr>
+<tr>
+<td>SERIALIZABLE</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+</tr>
+</tbody></table>
+<p>MySQL InnoDB 存储引擎的默认支持的隔离级别是 REPEATABLE-READ（可重读）。我们可以通过SELECT @@tx_isolation;命令来查看</p>
+<p><code>SELECT @@tx_isolation;</code> </p>
+<p><a rel=MySQL href="https://eatboooo.gitee.io/img/thumb/select_@@tx_isolation.jpg" title="SELECT @@tx_isolation;" data-fancybox="images"><img src="https://eatboooo.gitee.io/img/thumb/select_@@tx_isolation.jpg" alt="SELECT @@tx_isolation;"></a></p>
+<p>这里需要注意的是：与 SQL 标准不同的地方在于 InnoDB 存储引擎在 REPEATABLE-READ（可重读） 事务隔离级别下使用的是Next-Key Lock 锁算法，因此可以避免幻读的产生，这与其他数据库系统(如 SQL Server) 是不同的。所以说InnoDB 存储引擎的默认支持的隔离级别是 REPEATABLE-READ（可重读） 已经可以完全保证事务的隔离性要求，即达到了 SQL标准的 SERIALIZABLE(可串行化) 隔离级别。因为隔离级别越低，事务请求的锁越少，所以大部分数据库系统的隔离级别都是 READ-COMMITTED(读取提交内容) ，但是你要知道的是InnoDB 存储引擎默认使用 REPEAaTABLE-READ（可重读） 并不会有任何性能损失。</p>
+<p>InnoDB 存储引擎在 分布式事务 的情况下一般会用到 SERIALIZABLE(可串行化) 隔离级别。</p>
+<h2 id="锁机制与InnoDB锁算法"><a href="#锁机制与InnoDB锁算法" class="headerlink" title="锁机制与InnoDB锁算法"></a>锁机制与InnoDB锁算法</h2><h3 id="MyISAM和InnoDB存储引擎使用的锁："><a href="#MyISAM和InnoDB存储引擎使用的锁：" class="headerlink" title="MyISAM和InnoDB存储引擎使用的锁："></a>MyISAM和InnoDB存储引擎使用的锁：</h3><ul>
+<li>MyISAM采用表级锁(table-level locking)。</li>
+<li>InnoDB支持行级锁(row-level locking)和表级锁,默认为行级锁。</li>
+</ul>
+<h3 id="表级锁和行级锁对比："><a href="#表级锁和行级锁对比：" class="headerlink" title="表级锁和行级锁对比："></a>表级锁和行级锁对比：</h3><ul>
+<li><p>表级锁： MySQL中锁定 粒度最大 的一种锁，对当前操作的整张表加锁，实现简单，资源消耗也比较少，加锁快，不会出现死锁。其锁定粒度最大，触发锁冲突的概率最高，并发度最低，MyISAM和 InnoDB引擎都支持表级锁。</p>
+</li>
+<li><p>行级锁： MySQL中锁定 粒度最小 的一种锁，只针对当前操作的行进行加锁。 行级锁能大大减少数据库操作的冲突。其加锁粒度最小，并发度高，但加锁的开销也最大，加锁慢，会出现死锁。</p>
+</li>
+<li><p>详细内容可以参考：<br><a href="https://blog.csdn.net/qq_34337272/article/details/80611486" target="_blank" rel="noopener">MySQL锁机制</a>。</p>
+<h3 id="InnoDB存储引擎的锁的算法有三种："><a href="#InnoDB存储引擎的锁的算法有三种：" class="headerlink" title="InnoDB存储引擎的锁的算法有三种："></a>InnoDB存储引擎的锁的算法有三种：</h3></li>
+<li><p>Record lock：单个行记录上的锁</p>
+</li>
+<li><p>Gap lock：间隙锁，锁定一个范围，不包括记录本身</p>
+</li>
+<li><p>Next-key lock：record+gap 锁定一个范围，包含记录本身</p>
+</li>
+</ul>
+<h3 id="相关知识点："><a href="#相关知识点：" class="headerlink" title="相关知识点："></a>相关知识点：</h3><ol>
+<li>innodb对于行的查询使用next-key lock</li>
+<li>Next-locking keying为了解决Phantom Problem幻读问题</li>
+<li>当查询的索引含有唯一属性时，将next-key lock降级为record key</li>
+<li>Gap锁设计的目的是为了阻止多个事务将记录插入到同一范围内，而这会导致幻读问题的产生</li>
+<li>有两种方式显式关闭gap锁：（除了外键约束和唯一性检查外，其余情况仅使用record lock） A. 将事务隔离级别设置为RC B. 将参数innodb_locks_unsafe_for_binlog设置为1</li>
+</ol>
+<h2 id="大表优化"><a href="#大表优化" class="headerlink" title="大表优化"></a>大表优化</h2><h3 id="当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下："><a href="#当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下：" class="headerlink" title="当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下："></a>当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下：</h3><ol>
+<li><p>限定数据的范围<br>务必禁止不带任何限制数据范围条件的查询语句。比如：我们当用户在查询订单历史的时候，我们可以控制在一个月的范围内；</p>
+</li>
+<li><p>读/写分离<br>经典的数据库拆分方案，主库负责写，从库负责读；</p>
+</li>
+<li><p>垂直分区<br><strong>根据数据库里面数据表的相关性进行拆分。<br>例如，用户表中既有用户的登录信息又有用户的基本信息，可以将用户表拆分成两个单独的表，甚至放到单独的库做分库。</strong></p>
+<p>简单来说垂直拆分是指数据表列的拆分，把一张列比较多的表拆分为多张表。<br>如下图所示，这样来说大家应该就更容易理解了。<br><a rel=MySQL href="https://eatboooo.gitee.io/img/thumb/vertical_partition.jpg" title="垂直拆分" data-fancybox="images"><img src="https://eatboooo.gitee.io/img/thumb/vertical_partition.jpg" alt="垂直拆分"></a></p>
+<ul>
+<li>垂直拆分的优点：可以使得列数据变小，在查询时减少读取的Block数，减少I/O次数。此外，垂直分区可以简化表的结构，易于维护。</li>
+<li>垂直拆分的缺点： 主键会出现冗余，需要管理冗余列，并会引起Join操作，可以通过在应用层进行Join来解决。此外，垂直分区会让事务变得更加复杂；</li>
+</ul>
+</li>
+<li><p>水平分区<br><strong>保持数据表结构不变，通过某种策略存储数据分片。这样每一片数据分散到不同的表或者库中，达到了分布式的目的。<br>水平拆分可以支撑非常大的数据量。</strong><br>水平拆分是指数据表行的拆分，表的行数超过200万行时，就会变慢，这时可以把一张的表的数据拆成多张表来存放。举个例子：我们可以将用户信息表拆分成多个用户信息表，这样就可以避免单一表数据量过大对性能造成影响。<br><a rel=MySQL href="https://eatboooo.gitee.io/img/thumb/horizontal_partition.jpg" title="水平拆分" data-fancybox="images"><img src="https://eatboooo.gitee.io/img/thumb/horizontal_partition.jpg" alt="水平拆分"></a></p>
+<p> 水平拆分可以支持非常大的数据量。需要注意的一点是：分表仅仅是解决了单一表数据过大的问题，但由于表的数据还是在同一台机器上，其实对于提升MySQL并发能力没有什么意义，所以 <strong>水平拆分最好分库</strong> 。</p>
+<p> 水平拆分能够支持非常大的数据量存储，应用端改造也少，但 分片事务难以解决<br> ，跨节点Join性能较差，逻辑复杂。《Java工程师修炼之道》的作者推荐<br> 尽量不要对数据进行分片，因为拆分会带来逻辑、部署、运维的各种复杂度<br> ，一般的数据表在优化得当的情况下支撑千万以下的数据量是没有太大问题的。如果实在要分片，尽量选择客户端分片架构，这样可以减少一次和中间件的网络I/O。</p>
+<h4 id="下面补充一下数据库分片的两种常见方案："><a href="#下面补充一下数据库分片的两种常见方案：" class="headerlink" title="下面补充一下数据库分片的两种常见方案："></a>下面补充一下数据库分片的两种常见方案：</h4><ul>
+<li>客户端代理： 分片逻辑在应用端，封装在jar包中，通过修改或者封装JDBC层来实现。<br>当当网的 Sharding-JDBC 、阿里的TDDL是两种比较常用的实现。</li>
+<li>中间件代理： 在应用和数据中间加了一个代理层。分片逻辑统一维护在中间件服务中。 我们现在谈的 Mycat 、360的Atlas、网易的DDB等等都是这种架构的实现。</li>
+</ul>
+</li>
+</ol>
+<p>详细内容可以参考： <a href="https://segmentfault.com/a/1190000006158186" target="_blank" rel="noopener">MySQL大表优化方案</a>。</p>
+<h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485097&idx=1&sn=84c89da477b1338bdf3e9fcd65514ac1&chksm=cea24962f9d5c074d8d3ff1ab04ee8f0d6486e3d015cfd783503685986485c11738ccb542ba7&token=79317275&lang=zh_CN#rd" target="_blank" rel="noopener">一条SQL语句在MySQL中如何执行的</a><br><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485117&idx=1&sn=92361755b7c3de488b415ec4c5f46d73&chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&token=79317275&lang=zh_CN#rd" target="_blank" rel="noopener">MySQL高性能优化规范建议</a><br><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485185&idx=1&sn=66ef08b4ab6af5757792223a83fc0d45&chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&token=79317275&lang=zh_CN#rd" target="_blank" rel="noopener">腾讯面试：一条SQL语句执行得很慢的原因有哪些？—不看后悔系列</a></p>
+<hr>
+<p>此博客参考资料：  </p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">Snailclimb/JavaGuide</a></li>
+<li><a href="https://github.com/CyC2018/CS-Notes" target="_blank" rel="noopener">CyC2018/CS-Notes</a></li>
+</ul>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-11-04T03:53:01.533Z" itemprop="dateUpdated">2019-11-04 11:53:01</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2019/10/28/MySQL/" target="_blank" rel="external">https://www.eatboooo.cn/2019/10/28/MySQL/</a>
+        
+    </div>
+    <footer>
+        <a href="https://www.eatboooo.cn">
+            <img src="/img/avatar.jpg" alt="Eatboooo">
+            Eatboooo
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.eatboooo.cn/2019/10/28/MySQL/&title=《MySQL》 — EatbooooBlog&pic=https://www.eatboooo.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.eatboooo.cn/2019/10/28/MySQL/&title=《MySQL》 — EatbooooBlog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/2019/11/01/PHP单点登录/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">PHP单点登录</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="next">
+      <a href="/2019/10/28/Java并发/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java并发</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MySQL"><span class="post-toc-number">1.</span> <span class="post-toc-text">MySQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用命令-语句后面有分号"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">常用命令(语句后面有分号)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存储引擎"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">存储引擎</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MyISAM和InnoDB区别"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">MyISAM和InnoDB区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#阿里数据库内核’2017-12’月报中对MVCC的解释是"><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">阿里数据库内核’2017/12’月报中对MVCC的解释是:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字符集及校对规则"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">字符集及校对规则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#索引"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">索引</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#查询缓存的使用"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">查询缓存的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事务"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">事务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事物的四大特性-ACID"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">事物的四大特性(ACID)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#并发事务带来哪些问题"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">并发事务带来哪些问题?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不可重复读和幻读区别："><span class="post-toc-number">1.6.2.1.</span> <span class="post-toc-text">不可重复读和幻读区别：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事务隔离级别有哪些-MySQL的默认隔离级别是"><span class="post-toc-number">1.6.3.</span> <span class="post-toc-text">事务隔离级别有哪些?MySQL的默认隔离级别是?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SQL-标准定义了四个隔离级别："><span class="post-toc-number">1.6.3.1.</span> <span class="post-toc-text">SQL 标准定义了四个隔离级别：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锁机制与InnoDB锁算法"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">锁机制与InnoDB锁算法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MyISAM和InnoDB存储引擎使用的锁："><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">MyISAM和InnoDB存储引擎使用的锁：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#表级锁和行级锁对比："><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">表级锁和行级锁对比：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#InnoDB存储引擎的锁的算法有三种："><span class="post-toc-number">1.7.3.</span> <span class="post-toc-text">InnoDB存储引擎的锁的算法有三种：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关知识点："><span class="post-toc-number">1.7.4.</span> <span class="post-toc-text">相关知识点：</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#大表优化"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">大表优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下："><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面补充一下数据库分片的两种常见方案："><span class="post-toc-number">1.8.1.1.</span> <span class="post-toc-text">下面补充一下数据库分片的两种常见方案：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关知识"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">相关知识</span></a></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+
+</div>
+
+    </main>
+    <footer class="footer ">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://gitee.com/eatboooo" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                Eatboooo &copy; 2019 - 2020
+            </span>
+        		
+           	
+            
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.eatboooo.cn/2019/10/28/MySQL/&title=《MySQL》 — EatbooooBlog&pic=https://www.eatboooo.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.eatboooo.cn/2019/10/28/MySQL/&title=《MySQL》 — EatbooooBlog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABv0lEQVR42u3aO27EMAwFwL3/pZ02KWw/kpbWAUaVC0EaNwQ/+nzidfxa+f75nubCxcUdc4/Ldbbn+oTkh6/PPz0NFxd3I/c60CT05JyEfmPDxcV9JTcPUnnIw8XF/e/cPPXJix9cXNx3cpPiJw9qeTdjYa2Gi4s74E6CzlPfS/q7uLi4Le5RXNXAVC2Ebm7HxcXdwq0ORK/DUEKsjmxxcXG/y10xQK22R6MbcXFxt3CrSUl+QR7sqgkWLi7uOm5e5PTC0/yp1p9vXFzcLdzqM6leW6Ta+SwUP7i4uAu4+cizGoCq49Lodlxc3I3cpPjJA9O8zXoTyHBxcRdzqy3LyaD02Z/ExcVdx62mIEki0iucCnEXFxd3MbcXjKpD2d5g5nQPLi7uRu4nWNVmR6+bcTPuxcXF3ciNtsaj0OScPK3BxcV9D3cSmPLTkh+ov+jExcXtc4/imrdL8iIKFxf3W9xqcKkenSc31XELLi7uam7eJK0mKNXWapQq4eLibuROGp3V8eoDtRouLu4rufNkqBkucXFxX8mdlzqjFiouLu5Gbu8x1nUwqj7PikInLi7uFm5v8Nkrfno7cXFxN3J/ACSNM9JeCPZIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.4.4"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.2/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.4.4"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.4.4"></script>
+
+<!-- third-party -->
+
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.4.4"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+    <script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '∑(っ°Д°;)っ不见了！';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '(つェ⊂)咦!又好了!';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+</script>
+
+
+
+
+
+    
+</body>
+</html>

@@ -20,7 +20,7 @@ favicon: /img/favicon.ico
 
 # 头部背景
 # 如/img/banner.jpg 或 https://i.loli.net/2017/12/12/5a2fd18a74471.jpg
-headerBg: /eblog/img/banner.jpg
+headerBg: /img/banner.jpg
 
 # 动态定义title
 title_change:
@@ -60,7 +60,7 @@ avatar: /img/avatar.jpg
 avatar_link: / #默认为主页
 
 # 头像区域背景图
-brand: /eblog/img/brand.jpg
+brand: /img/brand.jpg
 
 # 电子邮件
 email: 571241210@qq.com

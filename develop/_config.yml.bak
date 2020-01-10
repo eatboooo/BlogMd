@@ -13,8 +13,8 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://eatboooo.gitee.io/eblog/
-root: https://eatboooo.gitee.io/eblog/
+url: https://www.eatboooo.cn/
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
@@ -79,5 +79,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@gitee.com:eatboooo/eBlog.git
+  repo: git@111.231.250.175:/var/repo/blog.git
   branch: master
