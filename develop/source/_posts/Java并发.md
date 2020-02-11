@@ -7,7 +7,7 @@ categories:
 tags:
 - Java
 - 并发
-src: //eatboooo.gitee.io/img/background/jvm_thread_h.png
+src: //gitee.com/eatboooo/BlogMd/raw/master/img/background/jvm_thread_h.png
 ---
 
 # Java并发
