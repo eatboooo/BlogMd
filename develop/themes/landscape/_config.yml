@@ -217,7 +217,7 @@ since_year: 2019
 
 # icp备案号
 ## 例如ICP_license: 京ICP备123456号
-ICP_license: false
+ICP_license: 晋ICP备19012747号
 
 # 驱动引擎/主题等信息
 power: false
