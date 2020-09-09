@@ -1,5 +1,6 @@
 ---
 title: PHP单点登录
+date: 2019/11/1
 categories:
 - 小练习
 - PHP

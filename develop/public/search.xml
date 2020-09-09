@@ -3,8 +3,214 @@
   
     
     <entry>
+      <title><![CDATA[Java核心技术_ 卷1_ 基础知识]]></title>
+      <url>/2020/08/25/2020-08-25-Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71/</url>
+      <content type="html"><![CDATA[<h1 id="Java核心技术-卷1-基础知识"><a href="#Java核心技术-卷1-基础知识" class="headerlink" title="Java核心技术_ 卷1_ 基础知识"></a>Java核心技术_ 卷1_ 基础知识</h1><h2 id="1-Java-程序设计概述"><a href="#1-Java-程序设计概述" class="headerlink" title="1 Java 程序设计概述"></a>1 Java 程序设计概述</h2><ul>
+<li>1996 年 Java 第一次发布</li>
+<li>Java 关键词<ul>
+<li>简单：Java 语法是 C++ 的“纯净”版本、另一方面是小：基本的解释器以及类支持约40kb，再加上标准类库和线程支持约175kb。</li>
+<li>面向对象：Java 与 C++ 不同于多继承，取而代之是 Java 简单的接口概念。</li>
+<li>网络技能：Java 有扩展的例程库，用于处理 TCP/IP 协议。</li>
+<li>健壮性：编译器可以检测出许多错误，永远不会存取一个“坏的”指针，造成内存分配错误。</li>
+<li>安全性：可以防止运行时堆栈溢出、在自己的处理空间之外破坏内存、未经授权读写文件，有数字签名类。</li>
+<li>体系结构中立：编译器生成中立的目标文件格式，有 JRE 就可以运行这段编译过的代码。</li>
+<li>可移植性：和 C++ 不同，Java 数据类型有固定大小，二进制数据以固定格式进行存储和传输，字符串用 Unicode 格式存储，方便代码移植。</li>
+<li>解释型：即时编译器。解释 -&gt; 翻译员，编译 -&gt; 外国书籍全部翻译好出版。</li>
+<li>高性能：字节码可以在运行时刻快速地翻译成特定 CPU 的机器码。</li>
+<li>多线程：编译简单，把多线程的实现交给底层。</li>
+<li>动态性：库中可以自由添加新方法、变量而客户端不受影响。</li>
+</ul>
+</li>
+<li>发展史<ul>
+<li>98 年 1.2 - GUI 更精细</li>
+<li>00、02 年 1.3、1.4 - 扩展标准类库、提高性能、修正 bug</li>
+<li>04 年 5.0(1.5) - 重大改进，泛型、 受 C# 启发：for each、自动装箱、元数据</li>
+<li>06 年 6 - 性能、类库</li>
+<li>09 年 被 Oracle 收购</li>
+<li>11 年 Java7 - 简单改进</li>
+<li>13 年 Java8</li>
+</ul>
+</li>
+<li>冷知识<ul>
+<li>程序设计语言的成功更多地取决于其支持系统的能力、而不是优美的语法。</li>
+<li>JavaScript 语法类似 Java，除此之外两者无任何关系。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-Java-的基本程序设计结构"><a href="#3-Java-的基本程序设计结构" class="headerlink" title="3 Java 的基本程序设计结构"></a>3 Java 的基本程序设计结构</h2><ul>
+<li><p>大小写敏感，将 main 写成 Main 程序将无法运行</p>
+</li>
+<li><p>源代码 .java 编译后 .class 并与源文件处于同一目录</p>
+</li>
+<li><p>Java 中的注释不会出现在可执行程序中，和大多数语言一样</p>
+</li>
+<li><p>长整型后缀 L，十六进制数值前缀 0x，八进制前缀 0 (八进制比较容易混淆，不建议使用)， 从 Java7 开始二进制前缀 0b、还可以为数字字面量加下划线（例如 1_000_000) 编译器会去除这些下划线</p>
+</li>
+<li><p>可在 float 类型的数值添加后缀 F、double 类型的数值添加后缀 D</p>
+</li>
+<li><p>浮点数不适用于禁止出现舍入误差的金融计算中，例如 sout（2.0 - 1.1) 将打印出 0.8999~，因为浮点数采用二进制系统表示，没办法精准表示 1/10，应该使用 BigDecimal 类</p>
+</li>
+<li><p>public static void main(String \u005B\u005D args) 这种写法符合语法规则 \u005B 和 \u005D 是 [ 和 ] 的 Unicode 编码</p>
+<blockquote>
+<p> 我试了下 编译器报错，但是打印出 public static void main(String [] args)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; System.out.println(<span class="string">"public static void main(String \u005B\u005D args)"</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>整型值和布尔值之间不能进行相互转换</p>
+</li>
+<li><p>声明变量后如果要使用，必须用赋值语句赋值，否则编译器报错</p>
+</li>
+<li><p>n++ 可以， 4++ 不行</p>
+</li>
+<li><p>位运算符：与 &amp;，或 |，亦或 ^，非 ~</p>
+</li>
+<li><p>Math.sqrt(double x) 计算 x 的平方根，Math.pow(double x，double y) 计算 x 的 y 次方，(int)Math.round(double x) 四舍五入</p>
+</li>
+<li><p>&amp;&amp; 的优先级比 || 高；+= 是右结合运算符，a+=b+=c 等价于 a+=（b+=c)</p>
+</li>
+<li><p>Java 中不使用逗号运算符，可以 int i=0，j=1</p>
+</li>
+<li><p>获取用户输入</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">&gt;String s = scanner.nextLine(); <span class="comment">// 还有 next() - 读取一个单词，以空白作为分隔；nextInt() - 一个整型</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>占位符输出 printf</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">float</span> f=<span class="number">11.3456f</span>;</span><br><span class="line">&gt; <span class="keyword">int</span> d=<span class="number">123</span>;</span><br><span class="line">&gt; String s=<span class="string">"我是字符串"</span>;</span><br><span class="line">&gt; <span class="comment">// %8.2f 表示用8个字符的宽度和小数点后两个字符的精度打印 f; %s 字符串;%d 十进制整数</span></span><br><span class="line">&gt; System.out.printf(<span class="string">"浮点数: %8.2f;字符串:%s;十进制整数:%d"</span>,f,s,d); <span class="comment">// 不换行,可以加 \r\n 实现</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>break 根据代码前面的标签冒号可以选择跳出，只能跳出不能跳入</p>
+</li>
+<li><p>BigInteger 大数值</p>
+</li>
+<li><p>快速打印 int[] arr 数组 System.out.println(Arrays.toString(arr))；多维数组用 Arrays.deepToString()</p>
+</li>
+</ul>
+<h2 id="4-对象与类"><a href="#4-对象与类" class="headerlink" title="4 对象与类"></a>4 对象与类</h2><ul>
+<li>面向对象程序设计（英语：Object-oriented programming，OOP）</li>
+<li>数据结构 + 算法 = 程序 （OOP 思想）</li>
+<li>类之间的关系 - 依赖、聚合（类 A 对象包含类 B 对象）、继承</li>
+<li>封装可以防止随意修改属性值，可以在方法中判断</li>
+<li>获取类里面私有属性时，不要编写返回引用可变对象的访问器方法，不然 private 白给</li>
+<li>this（） 或 this（param）调用本类有参或空惨构造</li>
+<li>finalize 方法将在垃圾回收器清除对象之前调用</li>
+</ul>
+<h2 id="5-继承"><a href="#5-继承" class="headerlink" title="5 继承"></a>5 继承</h2><ul>
+<li><p>超类和子类的前缀 “超” 和 “子” 来源于计算机科学和数学理论中的集合语言的术语</p>
+</li>
+<li><p>子类构造默认调用超类无参构造，如果超类没有没有无参且子类构造没有调用超类有参，则编译器报错</p>
+</li>
+<li><p>动态绑定 - 一个类中可能存在 f（int） 和 f（string），调用 f 时编译器知道该怎么做</p>
+</li>
+<li><p>虚拟机预先为每个类创建了一个方法表，调用方法时候查表就好了，节省时间开销 </p>
+<p>​    假如调用 e.getSalary（）</p>
+<ol>
+<li>提取 e 实际类型的方法表 （Employee、Manager）</li>
+<li>搜索定义 getSalary 签名的类</li>
+<li>虚拟机调用 （入栈…)</li>
+</ol>
+</li>
+<li><p>被 final 修饰的类不可以被继承，且里面的所有方法自动生成为 final 方法（子类就不能覆盖这个方法），而不包括域，域方法也可以被声明为 final，构造对象之后就不允许改变它的值了</p>
+</li>
+<li><p>被 final 修饰的变量，只能被赋值一次</p>
+</li>
+<li><p>final 可以避免动态绑定带来的系统开销，不过虚拟机中的即时编译器可以见机行事的进行内联处理（频繁调用且没有真正被覆盖）</p>
+</li>
+<li><p>类之间只能在继承层次内进行转换，且子类不能转换成父类</p>
+</li>
+<li><p>包含一个或多个抽象方法的类本身必须被声明为抽象的，不过类即使不含抽象方法，也可以将类声明为抽象类</p>
+</li>
+<li><p>抽象类不能被实例化（可以多态）</p>
+</li>
+<li><p>不加任何修饰符就是对本包可见</p>
+</li>
+<li><p>String 的散列码是由内容导出的，Objects.hsah(params) 可以组合多个对象的 hash 值</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">int</span> h = hash;</span><br><span class="line">&gt;     <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">&gt;         <span class="keyword">char</span> val[] = value;</span><br><span class="line">&gt; </span><br><span class="line">&gt;         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">&gt;             h = <span class="number">31</span> * h + val[i]; <span class="comment">// 31 是素数，而且二进制好算</span></span><br><span class="line">&gt;         &#125;</span><br><span class="line">&gt;         hash = h;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">return</span> h;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>对象包装器类是 fianl 类型的，ArrayList<int> 不行，ArrayList<integer> 行！</integer></int></p>
+</li>
+<li><p>如果想编写一个修改数字参数值的方法，可以在 org.omg.CORBA 包中定义一个持有者（holder）类型</p>
+</li>
+<li><p>Integer.paresInt(String s,int radix)，返回 s 表示的 radix 进制的 int</p>
+</li>
+<li><p>Class.forName(className) 和 object.getClass() 和 T.class 返回 Class 实例，.newInstance()  创建实例</p>
+</li>
+<li><p>Modifier.toString(f.getModifiers()) + f.getType().getName()+f.getName() // 最后类似于 private int i，f 是 Field 实例</p>
+</li>
+<li><p>method.invoke(is invoked from, params) // 方法执行 , getMethod(name,class) // 获取 Methode 对象</p>
+</li>
+</ul>
+<h2 id="6-接口与内部类"><a href="#6-接口与内部类" class="headerlink" title="6 接口与内部类"></a>6 接口与内部类</h2><ul>
+<li>克隆又称深拷贝，创建一个内容一致的新对象</li>
+<li>内部类里的方法可以访问包含他们的外部类的域，包括私有数据，内部类可以对同一个包中的其他类隐藏起来</li>
+<li>clone 的默认实现是浅拷贝，深拷贝必选克隆所有可变的实例域， clone 是 protected 修饰的</li>
+<li>想定义一个回调函数而不想写大量代码时可以使用匿名内部类（匿名内部类打包时会生成 …$1.class)</li>
+<li>内部类可访问该类的私有数据</li>
+<li>OuterClass.InnerClass 来引用内部类， outClass.new InnerClass() 来创建内部类实例</li>
+<li>在方法里面定义的类 - 局部内部类，局部内部类不能用 public 或 private 声明，只有该方法知道它的存在</li>
+<li>局部内部类访问的局部变量必须被声明为 final</li>
+<li>匿名内部类 - 只创建这个类的一个对象，就不必命名了，Car car = new Car() { private String carName;……}</li>
+<li>构造器的名字必须与类名相同，所以匿名类不能有构造器，取而代之的是，将构造器参数传递给超类构造器</li>
+<li>找数组的最大值和最小值时需要返回两个数值，这是可以用包含两个值的静态内部类（只有内部类可以声明为 static）</li>
+<li>创建代理对象 Proxy， newProxyInstance 这个方法的三个参数<ol>
+<li>类加载器</li>
+<li>Class 对象数组，每个元素都是需要实现的接口</li>
+<li>调用处理器 InvocationHandler</li>
+</ol>
+</li>
+</ul>
+<h2 id="11-异常、断言、日志和调试"><a href="#11-异常、断言、日志和调试" class="headerlink" title="11 异常、断言、日志和调试"></a>11 异常、断言、日志和调试</h2><ul>
+<li><p>所有的异常都是派生于 Throwable 类，分为 Error（Java运行时系统的内部错误和资源耗尽错误）和 Exception</p>
+</li>
+<li><p>Exception 又分为 RuntimeException 和 IOException</p>
+</li>
+<li><p>try - finally，try 中有 return，在方法返回前，finally 中的内容将被执行，如果 finally 中也有 return，则 finally 中的 return 会覆盖 try 中的 return</p>
+</li>
+<li><p>assert 断言，assert 条件 ，对条件进项检测，如果结果为 false 就会抛出 AssertionError 异常</p>
+</li>
+<li><p>日志代理，以匿名子类实例的形式创建一个代理对象</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; Random generator = <span class="keyword">new</span> Random()&#123;</span><br><span class="line">&gt;     <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">nextDouble</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;         <span class="keyword">double</span> result = <span class="keyword">super</span>.nextDouble();</span><br><span class="line">&gt;         Logger.getGlobal().info(<span class="string">"nextDouble:"</span> + result);</span><br><span class="line">&gt;         <span class="keyword">return</span> result;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt; &#125;;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>泛型在 Class 类中</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">public</span> <span class="keyword">native</span> Class&lt;? <span class="keyword">super</span> T&gt; getSuperclass(); <span class="comment">// 返回 T 的超类</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+            <category> Java </category>
+            
+            <category> 基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[指令备忘录]]></title>
-      <url>/2020/09/01/%E6%8C%87%E4%BB%A4%E5%A4%87%E5%BF%98%E5%BD%95/</url>
+      <url>/2020/01/10/%E6%8C%87%E4%BB%A4%E5%A4%87%E5%BF%98%E5%BD%95/</url>
       <content type="html"><![CDATA[<h1 id="指令备忘录"><a href="#指令备忘录" class="headerlink" title="指令备忘录"></a>指令备忘录</h1><p>老年人记忆力</p>
 <h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><blockquote>
 <p>itar</p>
@@ -33,7 +239,7 @@
 <p>git config user.name “eatboooo”</p>
 </blockquote>
 <blockquote>
-<p>git config user.email “<a href="mailto:571241210@qq.com" target="_blank" rel="noopener">571241210@qq.com</a>“</p>
+<p>git config user.email <a href="mailto:571241210@qq.com" target="_blank" rel="noopener">571241210@qq.com</a></p>
 </blockquote>
 <blockquote>
 <p>git config –list</p>
@@ -74,8 +280,40 @@
     </entry>
     
     <entry>
+      <title><![CDATA[golang祖安助手]]></title>
+      <url>/2019/11/18/golang%E7%A5%96%E5%AE%89%E5%8A%A9%E6%89%8B/</url>
+      <content type="html"><![CDATA[<h1 id="祖安助手"><a href="#祖安助手" class="headerlink" title="祖安助手"></a>祖安助手</h1><p>分为两个版本</p>
+<ul>
+<li>文件读取版本</li>
+<li>网络请求版本<h2 id="文件读取版本"><a href="#文件读取版本" class="headerlink" title="文件读取版本"></a>文件读取版本</h2>读取本地的 test.txt 文件，把文件内容用分号隔开，以数组的形式存入到内存中，同时监听键盘按键，每次触发按键后在数组中依次读取语句存入到剪切板中。<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"gitee.com/veni0/robotgo"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于读取文件</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getFile</span><span class="params">(name <span class="keyword">string</span>)</span> [] <span class="title">string</span></span> &#123;</span><br><span class="line">	data, err := ioutil.ReadFile(name) <span class="comment">//读取文件</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"File reading error"</span>, err)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"Contents of file:"</span>, <span class="keyword">string</span>(data)) <span class="comment">//打印文件内容</span></span><br><span class="line">	split := strings.Split(<span class="keyword">string</span>(data), <span class="string">";"</span>)      <span class="comment">//用分号隔开文件内容，并以数组的形式返回</span></span><br><span class="line">	<span class="keyword">return</span> split</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于把string字符串存入到剪切板中</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">putMsg</span><span class="params">(msg <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	clipboard.WriteAll(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"---祖安助手！---"</span>)</span><br><span class="line">	msg := getFile(<span class="string">"test.txt"</span>)   <span class="comment">//读取文件</span></span><br><span class="line">	eve := robotgo.AddEvent(<span class="string">"v"</span>) <span class="comment">//开始监听</span></span><br><span class="line">	<span class="comment">//robotgo.KeyTap("a", "ctrl")</span></span><br><span class="line">	<span class="comment">//全局监听事件</span></span><br><span class="line">	fmt.Println(<span class="string">"---请按v键---"</span>)</span><br><span class="line">	<span class="comment">// 循环遍历数组</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; eve; i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> i &lt; <span class="built_in">len</span>(msg) &#123;</span><br><span class="line">			putMsg(msg[i])</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			i = <span class="number">0</span></span><br><span class="line">			putMsg(msg[<span class="number">0</span>] + <span class="string">"\n"</span>) <span class="comment">//当 i 超过数组长度时，修改 i 的值并且把 msg【0】 存入到剪切板中。</span></span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">"---你按下v键---"</span>, <span class="string">"v"</span>)</span><br><span class="line">		eve = robotgo.AddEvent(<span class="string">"v"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="网络请求版本"><a href="#网络请求版本" class="headerlink" title="网络请求版本"></a>网络请求版本</h2><p>向网站 <a href="https://nmsl.shadiao.app/" target="_blank" rel="noopener">骂人宝典</a> 发送 get 请求，把 response 转换成string存入到剪切板中。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"gitee.com/veni0/robotgo"</span></span><br><span class="line">	<span class="string">"github.com/atotto/clipboard"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于模拟发送get请求</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetData</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	client := &amp;http.Client&#123;&#125;</span><br><span class="line">	resp, err := client.Get(<span class="string">"https://nmsl.shadiao.app/api.php?lang=zh_cn"</span>) <span class="comment">//发送get请求,并接收response</span></span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line">	body, err := ioutil.ReadAll(resp.Body) <span class="comment">//读取response</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(body))</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(body) <span class="comment">//以string的形式返回</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于把string字符串存入到剪切板中</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">putMsg</span><span class="params">(msg <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	clipboard.WriteAll(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"---祖安助手！---"</span>)</span><br><span class="line">	putMsg(GetData()) </span><br><span class="line">	eve := robotgo.AddEvent(<span class="string">"v"</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> eve &#123;</span><br><span class="line">		putMsg(GetData())</span><br><span class="line">		fmt.Println(<span class="string">"---你按下v键，剪切板生成了以下内容---"</span>, <span class="string">"v"</span>)</span><br><span class="line">		eve = robotgo.AddEvent(<span class="string">"v"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+        <categories>
+            
+            <category> 小知识 </category>
+            
+            <category> golang </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> golang </tag>
+            
+            <tag> 脚本 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[网络知识]]></title>
-      <url>/2020/09/01/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/</url>
+      <url>/2019/11/04/%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86/</url>
       <content type="html"><![CDATA[<h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="★★★-各层协议的作用，以及-TCP-IP-协议的特点。"><a href="#★★★-各层协议的作用，以及-TCP-IP-协议的特点。" class="headerlink" title="★★★ 各层协议的作用，以及 TCP/IP 协议的特点。"></a>★★★ 各层协议的作用，以及 TCP/IP 协议的特点。</h3><figure class="image-box">
                 <img src="http://111.231.250.175/img/thumb/network_structure.jpg" alt="network_structure" title class>
                 <p>network_structure</p>
@@ -356,32 +594,225 @@
     </entry>
     
     <entry>
-      <title><![CDATA[golang祖安助手]]></title>
-      <url>/2020/09/01/golang%E7%A5%96%E5%AE%89%E5%8A%A9%E6%89%8B/</url>
-      <content type="html"><![CDATA[<h1 id="祖安助手"><a href="#祖安助手" class="headerlink" title="祖安助手"></a>祖安助手</h1><p>分为两个版本</p>
-<ul>
-<li>文件读取版本</li>
-<li>网络请求版本<h2 id="文件读取版本"><a href="#文件读取版本" class="headerlink" title="文件读取版本"></a>文件读取版本</h2>读取本地的 test.txt 文件，把文件内容用分号隔开，以数组的形式存入到内存中，同时监听键盘按键，每次触发按键后在数组中依次读取语句存入到剪切板中。<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"gitee.com/veni0/robotgo"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"strings"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于读取文件</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">getFile</span><span class="params">(name <span class="keyword">string</span>)</span> [] <span class="title">string</span></span> &#123;</span><br><span class="line">	data, err := ioutil.ReadFile(name) <span class="comment">//读取文件</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"File reading error"</span>, err)</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="string">"Contents of file:"</span>, <span class="keyword">string</span>(data)) <span class="comment">//打印文件内容</span></span><br><span class="line">	split := strings.Split(<span class="keyword">string</span>(data), <span class="string">";"</span>)      <span class="comment">//用分号隔开文件内容，并以数组的形式返回</span></span><br><span class="line">	<span class="keyword">return</span> split</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于把string字符串存入到剪切板中</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">putMsg</span><span class="params">(msg <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	clipboard.WriteAll(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"---祖安助手！---"</span>)</span><br><span class="line">	msg := getFile(<span class="string">"test.txt"</span>)   <span class="comment">//读取文件</span></span><br><span class="line">	eve := robotgo.AddEvent(<span class="string">"v"</span>) <span class="comment">//开始监听</span></span><br><span class="line">	<span class="comment">//robotgo.KeyTap("a", "ctrl")</span></span><br><span class="line">	<span class="comment">//全局监听事件</span></span><br><span class="line">	fmt.Println(<span class="string">"---请按v键---"</span>)</span><br><span class="line">	<span class="comment">// 循环遍历数组</span></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; eve; i++ &#123;</span><br><span class="line">		<span class="keyword">if</span> i &lt; <span class="built_in">len</span>(msg) &#123;</span><br><span class="line">			putMsg(msg[i])</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			i = <span class="number">0</span></span><br><span class="line">			putMsg(msg[<span class="number">0</span>] + <span class="string">"\n"</span>) <span class="comment">//当 i 超过数组长度时，修改 i 的值并且把 msg【0】 存入到剪切板中。</span></span><br><span class="line">		&#125;</span><br><span class="line">		fmt.Println(<span class="string">"---你按下v键---"</span>, <span class="string">"v"</span>)</span><br><span class="line">		eve = robotgo.AddEvent(<span class="string">"v"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <title><![CDATA[PHP单点登录]]></title>
+      <url>/2019/11/01/PHP%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/</url>
+      <content type="html"><![CDATA[<h1 id="PHP单点登录"><a href="#PHP单点登录" class="headerlink" title="PHP单点登录"></a>PHP单点登录</h1><h2 id="结构概览"><a href="#结构概览" class="headerlink" title="结构概览"></a>结构概览</h2><figure class="image-box">
+                <img src="http://111.231.250.175/img/thumb/PHP_login_makeup.jpg" alt="项目组成" title class>
+                <p>项目组成</p>
+            </figure>
+<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>首先建立数据库连接，用于登录校验以及注册添加。</p>
+<blockquote>
+<p>db_config.php</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line">$conn = <span class="keyword">new</span> mysqli(<span class="string">'eatboooo.cn'</span>,<span class="string">'root'</span>,<span class="string">'*****'</span>,<span class="string">'develop_test'</span>);</span><br><span class="line"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'数据库连接失败！'</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<h2 id="网络请求版本"><a href="#网络请求版本" class="headerlink" title="网络请求版本"></a>网络请求版本</h2><p>向网站 <a href="https://nmsl.shadiao.app/" target="_blank" rel="noopener">骂人宝典</a> 发送 get 请求，把 response 转换成string存入到剪切板中。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"gitee.com/veni0/robotgo"</span></span><br><span class="line">	<span class="string">"github.com/atotto/clipboard"</span></span><br><span class="line">	<span class="string">"io/ioutil"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于模拟发送get请求</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">GetData</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	client := &amp;http.Client&#123;&#125;</span><br><span class="line">	resp, err := client.Get(<span class="string">"https://nmsl.shadiao.app/api.php?lang=zh_cn"</span>) <span class="comment">//发送get请求,并接收response</span></span><br><span class="line">	<span class="keyword">defer</span> resp.Body.Close()</span><br><span class="line">	body, err := ioutil.ReadAll(resp.Body) <span class="comment">//读取response</span></span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">	&#125;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(body))</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">string</span>(body) <span class="comment">//以string的形式返回</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//该方法用于把string字符串存入到剪切板中</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">putMsg</span><span class="params">(msg <span class="keyword">string</span>)</span></span> &#123;</span><br><span class="line">	clipboard.WriteAll(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"---祖安助手！---"</span>)</span><br><span class="line">	putMsg(GetData()) </span><br><span class="line">	eve := robotgo.AddEvent(<span class="string">"v"</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> eve &#123;</span><br><span class="line">		putMsg(GetData())</span><br><span class="line">		fmt.Println(<span class="string">"---你按下v键，剪切板生成了以下内容---"</span>, <span class="string">"v"</span>)</span><br><span class="line">		eve = robotgo.AddEvent(<span class="string">"v"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="连接redis"><a href="#连接redis" class="headerlink" title="连接redis"></a>连接redis</h3><p>连接redis，用于储存md5随机产生的cookieId，用于多台服务器之前的登录校验，用于保持登录状态。</p>
+<blockquote>
+<p>re_config.php</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line">$redis = <span class="keyword">new</span> Redis();</span><br><span class="line">$redis-&gt;connect(<span class="string">'eatboooo.cn'</span>, <span class="number">6379</span>); <span class="comment">//连接Redis</span></span><br><span class="line">$redis-&gt;auth(<span class="string">'********'</span>); <span class="comment">//密码验证</span></span><br><span class="line">$redis-&gt;select(<span class="number">1</span>);<span class="comment">//选择数据库1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="登录实现"><a href="#登录实现" class="headerlink" title="登录实现"></a>登录实现</h3><p>首先是简单的前端From表单。</p>
+<blockquote>
+<p>login.html</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"../Interface/LoginInterface.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userId"</span> <span class="attr">placeholder</span>=<span class="string">"手机号/邮箱"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"userPassword"</span> <span class="attr">placeholder</span>=<span class="string">"密码可见"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"slig-btn"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            没有账号？请</span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"regist.html"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"wj"</span>&gt;</span>忘记密码？<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>前端的表单提交到后端验证,同时记得对明文密码进行加密处理。</p>
+<blockquote>
+<p>LoginInterface.php</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">'../config/db_config.php'</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">'../config/re_config.php'</span>);</span><br><span class="line">$userId = $_POST[<span class="string">'userId'</span>];</span><br><span class="line">$userPassword = md5($_POST[<span class="string">'userPassword'</span>]); <span class="comment">//md5对明文密码进行加密</span></span><br><span class="line"><span class="keyword">if</span> ($userId == <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("请输入用户名！");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ($userPassword == <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("请输入密码！");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">$sql</span><br><span class="line">    = <span class="string">"select * from user where userId = '$userId' and userPassword = '$userPassword'"</span>;</span><br><span class="line">$result = $conn-&gt;query($sql);</span><br><span class="line">$number = mysqli_num_rows($result);</span><br><span class="line">$msg = $result-&gt;fetch_assoc(); <span class="comment">//拿出用户信息</span></span><br><span class="line">$cid = md5(</span><br><span class="line">    uniqid(microtime(<span class="keyword">true</span>), <span class="keyword">true</span>)</span><br><span class="line">); <span class="comment">//随机生成cookieID 存储在redis和cookie中 用于保持登录状态</span></span><br><span class="line"><span class="keyword">if</span> ($number) &#123;</span><br><span class="line">    setcookie(<span class="string">'user'</span>, $cid, time() + <span class="number">3000</span>);</span><br><span class="line"><span class="comment">//    array_push($msg, $cid); 数组追加cid操作</span></span><br><span class="line">    $redis-&gt;setex($cid, <span class="number">3600</span>, json_encode($msg));</span><br><span class="line"><span class="comment">//    $redis-&gt;setex($cid, 3600, urldecode($msg));  //因为数组中有中文 所以使用urldecode方法把数组转json</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;window.location="../web/index.html";&lt;/script&gt;'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("用户名或密码错误！");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注册实现"><a href="#注册实现" class="headerlink" title="注册实现"></a>注册实现</h3><p>编写前端简单的注册表单。</p>
+<blockquote>
+<p>regist.html</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"../Interface/RegistInterface.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userId"</span> <span class="attr">placeholder</span>=<span class="string">"请输入用户名"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"dui"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>输入密码<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"userPassword"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"cuo"</span>&gt;</span>密码由6-16的字母、数字、符号组成<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw psw2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userName"</span> <span class="attr">placeholder</span>=<span class="string">"请输入姓名"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw psw2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>简介<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userDescript"</span> <span class="attr">placeholder</span>=<span class="string">"请输入简介"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> <span class="attr">class</span>=<span class="string">"psw-btn"</span>&gt;</span>立即注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"sign-in"</span>&gt;</span></span><br><span class="line">        已有账号？请</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"login.html"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>后端操作mysql实现注册,注意插入的数据类型是否与数据库中的表中的数据类型一致。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">'../config/db_config.php'</span>);</span><br><span class="line">$userName = $_POST[<span class="string">'userName'</span>];</span><br><span class="line">$userPassword = md5($_POST[<span class="string">'userPassword'</span>]); <span class="comment">//md5对明文密码进行加密</span></span><br><span class="line">$userDescript = $_POST[<span class="string">'userDescript'</span>];</span><br><span class="line">$userId = $_POST[<span class="string">'userId'</span>];</span><br><span class="line"></span><br><span class="line">$sql = <span class="string">"select userId from user where userId = '$_POST[userId]'"</span>;</span><br><span class="line">$result = $conn-&gt;query($sql);</span><br><span class="line">$number = mysqli_num_rows($result);</span><br><span class="line"><span class="keyword">if</span> ($number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("用户名已经存在");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $sql_insert = <span class="string">"INSERT INTO user() VALUES('$userId','$userName','$userPassword','$userDescript')"</span>;</span><br><span class="line">    $res_insert = $conn-&gt;query($sql_insert);</span><br><span class="line">    <span class="keyword">if</span> ($res_insert) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'&lt;script&gt;window.location="../web/login.html";&lt;/script&gt;'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('系统繁忙，请稍候！');&lt;/script&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="校验实现"><a href="#校验实现" class="headerlink" title="校验实现"></a>校验实现</h3><p>拿到cookie中的cookieID，查看服务器上redis中是否存在。</p>
+<blockquote>
+<p>check.php</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">'../config/re_config.php'</span>);</span><br><span class="line"><span class="keyword">if</span> ($redis-&gt;get($_COOKIE[<span class="string">"user"</span>])) &#123;</span><br><span class="line">    $msg = json_decode($redis-&gt;get($_COOKIE[<span class="string">"user"</span>]));</span><br><span class="line">    var_dump($msg);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"您害妹登录"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
       
         <categories>
             
-            <category> 小知识 </category>
+            <category> 小练习 </category>
             
-            <category> golang </category>
+            <category> PHP </category>
             
         </categories>
         
         
         <tags>
             
-            <tag> golang </tag>
+            <tag> PHP </tag>
             
-            <tag> 脚本 </tag>
+            <tag> 登录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java线程]]></title>
+      <url>/2019/11/01/Java%E7%BA%BF%E7%A8%8B/</url>
+      <content type="html"><![CDATA[<h1 id="线程基础"><a href="#线程基础" class="headerlink" title="线程基础"></a>线程基础</h1><p>Java 并发中线程的基础知识整理。<br>Java 多线程中的三大特性：原子性，可见性，顺序性。</p>
+<h2 id="1-Java-线程生命周期中有哪些状态？各状态之间如何切换？"><a href="#1-Java-线程生命周期中有哪些状态？各状态之间如何切换？" class="headerlink" title="1 Java 线程生命周期中有哪些状态？各状态之间如何切换？"></a>1 Java 线程生命周期中有哪些状态？各状态之间如何切换？</h2><figure class="image-box">
+                <img src="http://111.231.250.175/img/thumb/java_thread_status.png" alt="java_thread_status" title class>
+                <p>java_thread_status</p>
+            </figure>  
+<p>java.lang.Thread.State 中定义了 6 种不同的线程状态，在给定的一个时刻，线程只能处于其中的一个状态。  </p>
+<ul>
+<li>开始（New） - 还没有调用 start() 方法的线程处于此状态。</li>
+<li>可运行（Runnable） - 已经调用了 start() 方法的线程状态。此状态意味着，线程已经准备好了，一旦被线程调度器分配了 CPU 时间片，就可以运行线程。</li>
+<li>阻塞（Blocked） - 阻塞状态。线程阻塞的线程状态等待监视器锁定。处于阻塞状态的线程正在等待监视器锁定，以便在调用 Object.wait() 之后输入同步块/方法或重新输入同步块/方法。</li>
+<li>等待（Waiting） - 等待状态。一个线程处于等待状态，是由于执行了 3 个方法中的任意方法：<ul>
+<li>Object.wait()</li>
+<li>Thread.join()</li>
+<li>LockSupport.park()</li>
+</ul>
+</li>
+<li>定时等待（Timed waiting） - 等待指定时间的状态。一个线程处于定时等待状态，是由于执行了以下方法中的任意方法：<ul>
+<li>Thread.sleep(sleeptime)</li>
+<li>Object.wait(timeout)</li>
+<li>Thread.join(timeout)</li>
+<li>LockSupport.parkNanos(timeout)</li>
+<li>LockSupport.parkUntil(timeout)</li>
+</ul>
+</li>
+<li>终止(Terminated) - 线程 run() 方法执行结束，或者因异常退出了 run() 方法，则该线程结束生命周期。死亡的线程不可再次复生。</li>
+</ul>
+<h2 id="2-创建线程有哪些方式？这些方法各自利弊是什么？"><a href="#2-创建线程有哪些方式？这些方法各自利弊是什么？" class="headerlink" title="2 创建线程有哪些方式？这些方法各自利弊是什么？"></a>2 创建线程有哪些方式？这些方法各自利弊是什么？</h2><p>创建线程主要有三种方式：</p>
+<ol>
+<li>继承 Thread 类<ul>
+<li>定义 Thread 类的子类，并重写该类的 run() 方法，该 run() 方法的方法体就代表了线程要完成的任务。因此把 run() 方法称为执行体。</li>
+<li>创建 Thread 子类的实例，即创建了线程对象。<br>调用线程对象的 start() 方法来启动该线程。  </li>
+</ul>
+</li>
+<li>实现 Runnable 接口<ul>
+<li>定义 Runnable 接口的实现类，并重写该接口的 run() 方法，该 run() 方法的方法体同样是该线程的线程执行体。</li>
+<li>创建 Runnable 实现类的实例，并以此实例作为 Thread 对象，该 Thread 对象才是真正的线程对象。</li>
+<li>调用线程对象的 start() 方法来启动该线程。</li>
+</ul>
+</li>
+<li>通过 Callable 接口和 Future 接口<ul>
+<li>创建 Callable 接口的实现类，并实现 call() 方法，该 call() 方法将作为线程执行体，并且有返回值。</li>
+<li>创建 Callable 实现类的实例，使用 FutureTask 类来包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值。</li>
+<li>使用 FutureTask 对象作为 Thread 对象的 target 创建并启动新线程。</li>
+<li>调用 FutureTask 对象的 get() 方法来获得子线程执行结束后的返回值<br>三种创建线程方式对比</li>
+<li>实现 Runnable 接口优于继承 Thread 类，因为根据开放封闭原则——实现接口更便于扩展；</li>
+<li>实现 Runnable 接口的线程没有返回值；而使用 Callable / Future 方式可以让线程有返回值。</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-什么是-Callable-和-Future？什么是-FutureTask？"><a href="#3-什么是-Callable-和-Future？什么是-FutureTask？" class="headerlink" title="3 什么是 Callable 和 Future？什么是 FutureTask？"></a>3 什么是 Callable 和 Future？什么是 FutureTask？</h2><h3 id="什么是-Callable-和-Future？"><a href="#什么是-Callable-和-Future？" class="headerlink" title="什么是 Callable 和 Future？"></a>什么是 Callable 和 Future？</h3><p>Java 5 在 concurrency 包中引入了 Callable 接口，它和 Runnable 接口很相似，但它可以返回一个对象或者抛出一个异常。</p>
+<p>Callable 接口使用泛型去定义它的返回类型。Executors 类提供了一些有用的方法去在线程池中执行 Callable 内的任务。由于 Callable 任务是并行的，我们必须等待它返回的结果。Future 对象为我们解决了这个问题。在线程池提交 Callable 任务后返回了一个 Future 对象，使用它我们可以知道 Callable 任务的状态和得到 Callable 返回的执行结果。Future 提供了 get() 方法让我们可以等待 Callable 结束并获取它的执行结果。</p>
+<h3 id="什么是-FutureTask？"><a href="#什么是-FutureTask？" class="headerlink" title="什么是 FutureTask？"></a>什么是 FutureTask？</h3><p>FutureTask 是 Future 的一个基础实现，我们可以将它同 Executors 使用处理异步任务。通常我们不需要使用 FutureTask 类，单当我们打算重写 Future 接口的一些方法并保持原来基础的实现是，它就变得非常有用。我们可以仅仅继承于它并重写我们需要的方法。阅读 Java FutureTask 例子，学习如何使用它。</p>
+<h2 id="4-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？"><a href="#4-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？" class="headerlink" title="4 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？"></a>4 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？</h2><ul>
+<li>run() 方法是线程的执行体。</li>
+<li>start() 方法负责启动线程，然后 JVM 会让这个线程去执行 run() 方法。<h3 id="可以直接调用-Thread-类的-run-方法么？"><a href="#可以直接调用-Thread-类的-run-方法么？" class="headerlink" title="可以直接调用 Thread 类的 run() 方法么？"></a>可以直接调用 Thread 类的 run() 方法么？</h3></li>
+<li>可以。但是如果直接调用 Thread 的 run() 方法，它的行为就会和普通的方法一样。</li>
+<li>为了在新的线程中执行我们的代码，必须使用 start() 方法。</li>
+</ul>
+<h2 id="5-sleep-、yield-、join-方法有什么区别？为什么-sleep-和-yield-方法是静态（static）的？"><a href="#5-sleep-、yield-、join-方法有什么区别？为什么-sleep-和-yield-方法是静态（static）的？" class="headerlink" title="5 sleep()、yield()、join() 方法有什么区别？为什么 sleep() 和 yield() 方法是静态（static）的？"></a>5 sleep()、yield()、join() 方法有什么区别？为什么 sleep() 和 yield() 方法是静态（static）的？</h2><h3 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h3><ul>
+<li>yield()方法和sleep()方法类似，也不会释放“锁标志”，区别在于，它没有参数，即yield()方法只是使当前线程重新回到可执行状态，所以执行yield()的线程有可能在进入到可执行状态后马上又被执行，另外yield()方法只能使同优先级或者高优先级的线程得到执行机会，这也和sleep()方法不同。</li>
+<li>yield() 方法可以让当前正在执行的线程暂停，但它不会阻塞该线程，它只是将该线程从 Running 状态转入 Runnable 状态。</li>
+<li>当某个线程调用了 yield() 方法暂停之后，只有优先级与当前线程相同，或者优先级比当前线程更高的处于就绪状态的线程才会获得执行的机会。<h3 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h3></li>
+<li>sleep() 方法需要指定等待的时间，它可以让当前正在执行的线程在指定的时间内暂停执行，进入 Blocked 状态。</li>
+<li>该方法既可以让其他同优先级或者高优先级的线程得到执行的机会，也可以让低优先级的线程得到执行机会。</li>
+<li>但是，sleep() 方法不会释放“锁标志”，也就是说如果有 synchronized 同步块，其他线程仍然不能访问共享数据。<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3></li>
+<li>join() 方法会使当前线程转入 Blocked 状态，等待调用 join() 方法的线程结束后才能继续执行。</li>
+<li>也就是说 join() 方法会使当前线程等待调用 join() 方法的线程结束后才能继续执行。<h3 id="为什么-sleep-和-yield-方法是静态（static）的？"><a href="#为什么-sleep-和-yield-方法是静态（static）的？" class="headerlink" title="为什么 sleep() 和 yield() 方法是静态（static）的？"></a>为什么 sleep() 和 yield() 方法是静态（static）的？</h3></li>
+<li>Thread 类的 sleep() 和 yield() 方法将处理 Running 状态的线程。所以在其他处于非 Running 状态的线程上执行这两个方法是没有意义的。这就是为什么这些方法是静态的。它们可以在当前正在执行的线程中工作，并避免程序员错误的认为可以在其他非运行线程调用这些方法。(在 run() 方法中直接使用)</li>
+</ul>
+<h2 id="6-wait-方法。"><a href="#6-wait-方法。" class="headerlink" title="6 wait()方法。"></a>6 wait()方法。</h2><ul>
+<li>wait() ， notify() 及 notifyAll() 只能在 synchronized 语句中使用，因为 wait() 会释放锁；<h3 id="notify-和-notifyAll-。"><a href="#notify-和-notifyAll-。" class="headerlink" title="notify() 和 notifyAll()。"></a>notify() 和 notifyAll()。</h3></li>
+<li>notify() 默认的唤醒策略是：先进入 wait() 的线程先被唤醒。</li>
+<li>notifyAll() 唤醒所有的等待线程，默认的唤醒策略是： LIFO （后进先出）。</li>
+<li>notify() 可能导致死锁，notifyAll() 开销大。</li>
+</ul>
+<h2 id="7-说说-sleep-方法和-wait-方法区别和共同点"><a href="#7-说说-sleep-方法和-wait-方法区别和共同点" class="headerlink" title="7 说说 sleep() 方法和 wait() 方法区别和共同点?"></a>7 说说 sleep() 方法和 wait() 方法区别和共同点?</h2><ul>
+<li>两者最主要的区别在于：sleep 方法没有释放锁，而 wait 方法释放了锁 。</li>
+<li>两者都可以暂停线程的执行。</li>
+<li>Wait 通常被用于线程间交互/通信，sleep 通常被用于暂停执行。</li>
+<li>wait() 方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的 notify() 或者 notifyAll() 方法。sleep() 方法执行完成后，线程会自动苏醒。或者可以使用wait(long timeout)超时后线程会自动苏醒。</li>
+</ul>
+<h2 id="8-1-为什么我们调用-start-方法时会执行-run-方法，为什么我们不能直接调用-run-方法？"><a href="#8-1-为什么我们调用-start-方法时会执行-run-方法，为什么我们不能直接调用-run-方法？" class="headerlink" title="8.1 为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？"></a>8.1 为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？</h2><p>这是另一个非常经典的 java 多线程面试问题，而且在面试中会经常被问到。很简单，但是很多人都会答不上来！</p>
+<p>new 一个 Thread，线程进入了新建状态;调用 start() 方法，会启动一个线程并使线程进入了就绪状态，当分配到时间片后就可以开始运行了。 start() 会执行线程的相应准备工作，然后自动执行 run() 方法的内容，这是真正的多线程工作。 而直接执行 run() 方法，会把 run 方法当成一个 main 线程下的普通方法去执行，并不会在某个线程中执行它，所以这并不是多线程工作。</p>
+<p>总结： 调用 start 方法方可启动线程并使线程进入就绪状态，而 run 方法只是 thread 的一个普通方法调用，还是在主线程里执行。</p>
+<h2 id="8-2-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？"><a href="#8-2-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？" class="headerlink" title="8.2 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？"></a>8.2 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？</h2><ul>
+<li>run() 方法是线程的执行体。</li>
+<li>start() 方法负责启动线程，然后 JVM 会让这个线程去执行 run() 方法。<h3 id="可以直接调用-Thread-类的-run-方法么？-1"><a href="#可以直接调用-Thread-类的-run-方法么？-1" class="headerlink" title="可以直接调用 Thread 类的 run() 方法么？"></a>可以直接调用 Thread 类的 run() 方法么？</h3></li>
+<li>可以。但是如果直接调用 Thread 的 run() 方法，它的行为就会和普通的方法一样。</li>
+<li>为了在新的线程中执行我们的代码，必须使用 start() 方法。</li>
+</ul>
+<h2 id="9-Java-的线程优先级如何控制？高优先级的-Java-线程一定先执行吗？"><a href="#9-Java-的线程优先级如何控制？高优先级的-Java-线程一定先执行吗？" class="headerlink" title="9 Java 的线程优先级如何控制？高优先级的 Java 线程一定先执行吗？"></a>9 Java 的线程优先级如何控制？高优先级的 Java 线程一定先执行吗？</h2><p>Java并发_1.7中有相关问题</p>
+<h3 id="Java-中的线程优先级如何控制"><a href="#Java-中的线程优先级如何控制" class="headerlink" title="Java 中的线程优先级如何控制"></a>Java 中的线程优先级如何控制</h3><ul>
+<li>Java 中的线程优先级的范围是 [1,10]，一般来说，高优先级的线程在运行时会具有优先权。可以通过 thread.setPriority(Thread.MAX_PRIORITY) 的方式设置，默认优先级为 5。<h3 id="高优先级的-Java-线程一定先执行吗"><a href="#高优先级的-Java-线程一定先执行吗" class="headerlink" title="高优先级的 Java 线程一定先执行吗"></a>高优先级的 Java 线程一定先执行吗</h3></li>
+<li>即使设置了线程的优先级，也无法保证高优先级的线程一定先执行。</li>
+<li>原因：这是因为 Java 线程优先级依赖于操作系统的支持，然而，不同的操作系统支持的线程优先级并不相同，不能很好的和 Java 中线程优先级一一对应。</li>
+<li>结论：Java 线程优先级控制并不可靠。</li>
+</ul>
+<h2 id="10-什么是守护线程？为什么要用守护线程？如何创建守护线程？"><a href="#10-什么是守护线程？为什么要用守护线程？如何创建守护线程？" class="headerlink" title="10 什么是守护线程？为什么要用守护线程？如何创建守护线程？"></a>10 什么是守护线程？为什么要用守护线程？如何创建守护线程？</h2><h3 id="什么是守护线程"><a href="#什么是守护线程" class="headerlink" title="什么是守护线程"></a>什么是守护线程</h3><ul>
+<li>守护线程（Daemon Thread）是在后台执行并且不会阻止 JVM 终止的线程。</li>
+<li>与守护线程（Daemon Thread）相反的，叫用户线程（User Thread），也就是非守护线程。<h3 id="为什么要用守护线程"><a href="#为什么要用守护线程" class="headerlink" title="为什么要用守护线程"></a>为什么要用守护线程</h3></li>
+<li>守护线程的优先级比较低，用于为系统中的其它对象和线程提供服务。典型的应用就是垃圾回收器。<h3 id="如何创建守护线程"><a href="#如何创建守护线程" class="headerlink" title="如何创建守护线程"></a>如何创建守护线程</h3></li>
+<li>使用 thread.setDaemon(true) 可以设置 thread 线程为守护线程。</li>
+<li>注意点：<ul>
+<li>正在运行的用户线程无法设置为守护线程，所以 thread.setDaemon(true) 必须在 thread.start() 之前设置，否则会抛出 llegalThreadStateException 异常；</li>
+<li>一个守护线程创建的子线程依然是守护线程。</li>
+<li>不要认为所有的应用都可以分配给守护线程来进行服务，比如读写操作或者计算逻辑。</li>
+</ul>
+</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>用个比较通俗的比如，任何一个守护线程都是整个JVM中所有非守护线程的保姆。</li>
+<li>只要当前JVM实例中尚存在任何一个非守护线程没有结束，守护线程就全部工作；只有当最后一个非守护线程结束时，守护线程随着JVM一同结束工作。Daemon的作用是为其他线程的运行提供便利服务，守护线程最典型的应用就是 GC (垃圾回收器)，它就是一个很称职的守护者。</li>
+<li>User和Daemon两者几乎没有区别，唯一的不同之处就在于虚拟机的离开：如果 User Thread已经全部退出运行了，只剩下Daemon Thread存在了，虚拟机也就退出了。 因为没有了被守护者，Daemon也就没有工作可做了，也就没有继续运行程序的必要了。</li>
+</ul>
+<h2 id="11-线程间是如何通信的？"><a href="#11-线程间是如何通信的？" class="headerlink" title="11 线程间是如何通信的？"></a>11 线程间是如何通信的？</h2><p>当线程间是可以共享资源时，线程间通信是协调它们的重要的手段。Object 类中 wait(), notify() 和 notifyAll() 方法可以用于线程间通信关于资源的锁的状态。</p>
+<h2 id="12-为什么线程通信的方法-wait-notify-和-notifyAll-被定义在-Object-类里？"><a href="#12-为什么线程通信的方法-wait-notify-和-notifyAll-被定义在-Object-类里？" class="headerlink" title="12 为什么线程通信的方法 wait(), notify() 和 notifyAll() 被定义在 Object 类里？"></a>12 为什么线程通信的方法 wait(), notify() 和 notifyAll() 被定义在 Object 类里？</h2><ul>
+<li>Java 的每个对象中都有一个锁(monitor，也可以成为监视器) 并且 wait()、notify() 等方法用于等待对象的锁或者通知其他线程对象的监视器可用。在 Java 的线程中并没有可供任何对象使用的锁和同步器。这就是为什么这些方法是 Object 类的一部分，这样 Java 的每一个类都有用于线程间通信的基本方法</li>
+<li>简单的说，这三个方法的操作对象都是锁级别的。</li>
+</ul>
+<hr>
+<p>此博客参考资料：  </p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">Snailclimb/JavaGuide</a></li>
+<li><a href="https://github.com/CyC2018/CS-Notes" target="_blank" rel="noopener">CyC2018/CS-Notes</a></li>
+<li><a href="https://github.com/dunwu/javacore" target="_blank" rel="noopener">dunwu/javacore</a></li>
+<li><a href="https://github.com/crossoverJie/JCSprout" target="_blank" rel="noopener">crossoverJie/JCSprout</a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 小知识 </category>
+            
+            <category> Java </category>
+            
+            <category> 并发 </category>
+            
+            <category> 线程 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 并发 </tag>
+            
+            <tag> 线程 </tag>
             
         </tags>
         
@@ -389,7 +820,7 @@
     
     <entry>
       <title><![CDATA[MySQL]]></title>
-      <url>/2020/09/01/MySQL/</url>
+      <url>/2019/10/17/MySQL/</url>
       <content type="html"><![CDATA[<h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><p>MySQL 是一种关系型数据库，在Java企业级开发中非常常用，因为 MySQL<br>是开源免费的，并且方便扩展。阿里巴巴数据库系统也大量用到了<br>MySQL，因此它的稳定性是有保障的。MySQL是开放源代码的，因此任何人都可以在<br>GPL(General Public License)<br>的许可下下载并根据个性化的需要对其进行修改。MySQL的默认端口号是3306。</p>
 <h2 id="常用命令-语句后面有分号"><a href="#常用命令-语句后面有分号" class="headerlink" title="常用命令(语句后面有分号)"></a>常用命令(语句后面有分号)</h2><p>启动MySQL服务</p>
 <blockquote>
@@ -601,233 +1032,8 @@
     </entry>
     
     <entry>
-      <title><![CDATA[PHP单点登录]]></title>
-      <url>/2020/09/01/PHP%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/</url>
-      <content type="html"><![CDATA[<h1 id="PHP单点登录"><a href="#PHP单点登录" class="headerlink" title="PHP单点登录"></a>PHP单点登录</h1><h2 id="结构概览"><a href="#结构概览" class="headerlink" title="结构概览"></a>结构概览</h2><figure class="image-box">
-                <img src="http://111.231.250.175/img/thumb/PHP_login_makeup.jpg" alt="项目组成" title class>
-                <p>项目组成</p>
-            </figure>
-<h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><p>首先建立数据库连接，用于登录校验以及注册添加。</p>
-<blockquote>
-<p>db_config.php</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line">$conn = <span class="keyword">new</span> mysqli(<span class="string">'eatboooo.cn'</span>,<span class="string">'root'</span>,<span class="string">'*****'</span>,<span class="string">'develop_test'</span>);</span><br><span class="line"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'数据库连接失败！'</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="连接redis"><a href="#连接redis" class="headerlink" title="连接redis"></a>连接redis</h3><p>连接redis，用于储存md5随机产生的cookieId，用于多台服务器之前的登录校验，用于保持登录状态。</p>
-<blockquote>
-<p>re_config.php</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-type: text/html; charset=utf-8"</span>);</span><br><span class="line">$redis = <span class="keyword">new</span> Redis();</span><br><span class="line">$redis-&gt;connect(<span class="string">'eatboooo.cn'</span>, <span class="number">6379</span>); <span class="comment">//连接Redis</span></span><br><span class="line">$redis-&gt;auth(<span class="string">'********'</span>); <span class="comment">//密码验证</span></span><br><span class="line">$redis-&gt;select(<span class="number">1</span>);<span class="comment">//选择数据库1</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="登录实现"><a href="#登录实现" class="headerlink" title="登录实现"></a>登录实现</h3><p>首先是简单的前端From表单。</p>
-<blockquote>
-<p>login.html</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"../Interface/LoginInterface.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userId"</span> <span class="attr">placeholder</span>=<span class="string">"手机号/邮箱"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"userPassword"</span> <span class="attr">placeholder</span>=<span class="string">"密码可见"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"slig-btn"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">            没有账号？请</span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"regist.html"</span>&gt;</span>注册<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"wj"</span>&gt;</span>忘记密码？<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>前端的表单提交到后端验证,同时记得对明文密码进行加密处理。</p>
-<blockquote>
-<p>LoginInterface.php</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">'../config/db_config.php'</span>);</span><br><span class="line"><span class="keyword">include</span>(<span class="string">'../config/re_config.php'</span>);</span><br><span class="line">$userId = $_POST[<span class="string">'userId'</span>];</span><br><span class="line">$userPassword = md5($_POST[<span class="string">'userPassword'</span>]); <span class="comment">//md5对明文密码进行加密</span></span><br><span class="line"><span class="keyword">if</span> ($userId == <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("请输入用户名！");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ($userPassword == <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("请输入密码！");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">    <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line">$sql</span><br><span class="line">    = <span class="string">"select * from user where userId = '$userId' and userPassword = '$userPassword'"</span>;</span><br><span class="line">$result = $conn-&gt;query($sql);</span><br><span class="line">$number = mysqli_num_rows($result);</span><br><span class="line">$msg = $result-&gt;fetch_assoc(); <span class="comment">//拿出用户信息</span></span><br><span class="line">$cid = md5(</span><br><span class="line">    uniqid(microtime(<span class="keyword">true</span>), <span class="keyword">true</span>)</span><br><span class="line">); <span class="comment">//随机生成cookieID 存储在redis和cookie中 用于保持登录状态</span></span><br><span class="line"><span class="keyword">if</span> ($number) &#123;</span><br><span class="line">    setcookie(<span class="string">'user'</span>, $cid, time() + <span class="number">3000</span>);</span><br><span class="line"><span class="comment">//    array_push($msg, $cid); 数组追加cid操作</span></span><br><span class="line">    $redis-&gt;setex($cid, <span class="number">3600</span>, json_encode($msg));</span><br><span class="line"><span class="comment">//    $redis-&gt;setex($cid, 3600, urldecode($msg));  //因为数组中有中文 所以使用urldecode方法把数组转json</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;window.location="../web/index.html";&lt;/script&gt;'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("用户名或密码错误！");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="注册实现"><a href="#注册实现" class="headerlink" title="注册实现"></a>注册实现</h3><p>编写前端简单的注册表单。</p>
-<blockquote>
-<p>regist.html</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"../Interface/RegistInterface.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>用户名<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userId"</span> <span class="attr">placeholder</span>=<span class="string">"请输入用户名"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"dui"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>输入密码<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"userPassword"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"cuo"</span>&gt;</span>密码由6-16的字母、数字、符号组成<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw psw2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userName"</span> <span class="attr">placeholder</span>=<span class="string">"请输入姓名"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"psw psw2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"psw-p1"</span>&gt;</span>简介<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"userDescript"</span> <span class="attr">placeholder</span>=<span class="string">"请输入简介"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span> <span class="attr">class</span>=<span class="string">"psw-btn"</span>&gt;</span>立即注册<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"sign-in"</span>&gt;</span></span><br><span class="line">        已有账号？请</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"login.html"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>后端操作mysql实现注册,注意插入的数据类型是否与数据库中的表中的数据类型一致。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">'../config/db_config.php'</span>);</span><br><span class="line">$userName = $_POST[<span class="string">'userName'</span>];</span><br><span class="line">$userPassword = md5($_POST[<span class="string">'userPassword'</span>]); <span class="comment">//md5对明文密码进行加密</span></span><br><span class="line">$userDescript = $_POST[<span class="string">'userDescript'</span>];</span><br><span class="line">$userId = $_POST[<span class="string">'userId'</span>];</span><br><span class="line"></span><br><span class="line">$sql = <span class="string">"select userId from user where userId = '$_POST[userId]'"</span>;</span><br><span class="line">$result = $conn-&gt;query($sql);</span><br><span class="line">$number = mysqli_num_rows($result);</span><br><span class="line"><span class="keyword">if</span> ($number) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'&lt;script&gt;alert("用户名已经存在");history.go(-1);&lt;/script&gt;'</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    $sql_insert = <span class="string">"INSERT INTO user() VALUES('$userId','$userName','$userPassword','$userDescript')"</span>;</span><br><span class="line">    $res_insert = $conn-&gt;query($sql_insert);</span><br><span class="line">    <span class="keyword">if</span> ($res_insert) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'&lt;script&gt;window.location="../web/login.html";&lt;/script&gt;'</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('系统繁忙，请稍候！');&lt;/script&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="校验实现"><a href="#校验实现" class="headerlink" title="校验实现"></a>校验实现</h3><p>拿到cookie中的cookieID，查看服务器上redis中是否存在。</p>
-<blockquote>
-<p>check.php</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>(<span class="string">'../config/re_config.php'</span>);</span><br><span class="line"><span class="keyword">if</span> ($redis-&gt;get($_COOKIE[<span class="string">"user"</span>])) &#123;</span><br><span class="line">    $msg = json_decode($redis-&gt;get($_COOKIE[<span class="string">"user"</span>]));</span><br><span class="line">    var_dump($msg);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"您害妹登录"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      
-        <categories>
-            
-            <category> 小练习 </category>
-            
-            <category> PHP </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> PHP </tag>
-            
-            <tag> 登录 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Java线程]]></title>
-      <url>/2020/09/01/Java%E7%BA%BF%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<h1 id="线程基础"><a href="#线程基础" class="headerlink" title="线程基础"></a>线程基础</h1><p>Java 并发中线程的基础知识整理。<br>Java 多线程中的三大特性：原子性，可见性，顺序性。</p>
-<h2 id="1-Java-线程生命周期中有哪些状态？各状态之间如何切换？"><a href="#1-Java-线程生命周期中有哪些状态？各状态之间如何切换？" class="headerlink" title="1 Java 线程生命周期中有哪些状态？各状态之间如何切换？"></a>1 Java 线程生命周期中有哪些状态？各状态之间如何切换？</h2><figure class="image-box">
-                <img src="http://111.231.250.175/img/thumb/java_thread_status.png" alt="java_thread_status" title class>
-                <p>java_thread_status</p>
-            </figure>  
-<p>java.lang.Thread.State 中定义了 6 种不同的线程状态，在给定的一个时刻，线程只能处于其中的一个状态。  </p>
-<ul>
-<li>开始（New） - 还没有调用 start() 方法的线程处于此状态。</li>
-<li>可运行（Runnable） - 已经调用了 start() 方法的线程状态。此状态意味着，线程已经准备好了，一旦被线程调度器分配了 CPU 时间片，就可以运行线程。</li>
-<li>阻塞（Blocked） - 阻塞状态。线程阻塞的线程状态等待监视器锁定。处于阻塞状态的线程正在等待监视器锁定，以便在调用 Object.wait() 之后输入同步块/方法或重新输入同步块/方法。</li>
-<li>等待（Waiting） - 等待状态。一个线程处于等待状态，是由于执行了 3 个方法中的任意方法：<ul>
-<li>Object.wait()</li>
-<li>Thread.join()</li>
-<li>LockSupport.park()</li>
-</ul>
-</li>
-<li>定时等待（Timed waiting） - 等待指定时间的状态。一个线程处于定时等待状态，是由于执行了以下方法中的任意方法：<ul>
-<li>Thread.sleep(sleeptime)</li>
-<li>Object.wait(timeout)</li>
-<li>Thread.join(timeout)</li>
-<li>LockSupport.parkNanos(timeout)</li>
-<li>LockSupport.parkUntil(timeout)</li>
-</ul>
-</li>
-<li>终止(Terminated) - 线程 run() 方法执行结束，或者因异常退出了 run() 方法，则该线程结束生命周期。死亡的线程不可再次复生。</li>
-</ul>
-<h2 id="2-创建线程有哪些方式？这些方法各自利弊是什么？"><a href="#2-创建线程有哪些方式？这些方法各自利弊是什么？" class="headerlink" title="2 创建线程有哪些方式？这些方法各自利弊是什么？"></a>2 创建线程有哪些方式？这些方法各自利弊是什么？</h2><p>创建线程主要有三种方式：</p>
-<ol>
-<li>继承 Thread 类<ul>
-<li>定义 Thread 类的子类，并重写该类的 run() 方法，该 run() 方法的方法体就代表了线程要完成的任务。因此把 run() 方法称为执行体。</li>
-<li>创建 Thread 子类的实例，即创建了线程对象。<br>调用线程对象的 start() 方法来启动该线程。  </li>
-</ul>
-</li>
-<li>实现 Runnable 接口<ul>
-<li>定义 Runnable 接口的实现类，并重写该接口的 run() 方法，该 run() 方法的方法体同样是该线程的线程执行体。</li>
-<li>创建 Runnable 实现类的实例，并以此实例作为 Thread 对象，该 Thread 对象才是真正的线程对象。</li>
-<li>调用线程对象的 start() 方法来启动该线程。</li>
-</ul>
-</li>
-<li>通过 Callable 接口和 Future 接口<ul>
-<li>创建 Callable 接口的实现类，并实现 call() 方法，该 call() 方法将作为线程执行体，并且有返回值。</li>
-<li>创建 Callable 实现类的实例，使用 FutureTask 类来包装 Callable 对象，该 FutureTask 对象封装了该 Callable 对象的 call() 方法的返回值。</li>
-<li>使用 FutureTask 对象作为 Thread 对象的 target 创建并启动新线程。</li>
-<li>调用 FutureTask 对象的 get() 方法来获得子线程执行结束后的返回值<br>三种创建线程方式对比</li>
-<li>实现 Runnable 接口优于继承 Thread 类，因为根据开放封闭原则——实现接口更便于扩展；</li>
-<li>实现 Runnable 接口的线程没有返回值；而使用 Callable / Future 方式可以让线程有返回值。</li>
-</ul>
-</li>
-</ol>
-<h2 id="3-什么是-Callable-和-Future？什么是-FutureTask？"><a href="#3-什么是-Callable-和-Future？什么是-FutureTask？" class="headerlink" title="3 什么是 Callable 和 Future？什么是 FutureTask？"></a>3 什么是 Callable 和 Future？什么是 FutureTask？</h2><h3 id="什么是-Callable-和-Future？"><a href="#什么是-Callable-和-Future？" class="headerlink" title="什么是 Callable 和 Future？"></a>什么是 Callable 和 Future？</h3><p>Java 5 在 concurrency 包中引入了 Callable 接口，它和 Runnable 接口很相似，但它可以返回一个对象或者抛出一个异常。</p>
-<p>Callable 接口使用泛型去定义它的返回类型。Executors 类提供了一些有用的方法去在线程池中执行 Callable 内的任务。由于 Callable 任务是并行的，我们必须等待它返回的结果。Future 对象为我们解决了这个问题。在线程池提交 Callable 任务后返回了一个 Future 对象，使用它我们可以知道 Callable 任务的状态和得到 Callable 返回的执行结果。Future 提供了 get() 方法让我们可以等待 Callable 结束并获取它的执行结果。</p>
-<h3 id="什么是-FutureTask？"><a href="#什么是-FutureTask？" class="headerlink" title="什么是 FutureTask？"></a>什么是 FutureTask？</h3><p>FutureTask 是 Future 的一个基础实现，我们可以将它同 Executors 使用处理异步任务。通常我们不需要使用 FutureTask 类，单当我们打算重写 Future 接口的一些方法并保持原来基础的实现是，它就变得非常有用。我们可以仅仅继承于它并重写我们需要的方法。阅读 Java FutureTask 例子，学习如何使用它。</p>
-<h2 id="4-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？"><a href="#4-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？" class="headerlink" title="4 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？"></a>4 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？</h2><ul>
-<li>run() 方法是线程的执行体。</li>
-<li>start() 方法负责启动线程，然后 JVM 会让这个线程去执行 run() 方法。<h3 id="可以直接调用-Thread-类的-run-方法么？"><a href="#可以直接调用-Thread-类的-run-方法么？" class="headerlink" title="可以直接调用 Thread 类的 run() 方法么？"></a>可以直接调用 Thread 类的 run() 方法么？</h3></li>
-<li>可以。但是如果直接调用 Thread 的 run() 方法，它的行为就会和普通的方法一样。</li>
-<li>为了在新的线程中执行我们的代码，必须使用 start() 方法。</li>
-</ul>
-<h2 id="5-sleep-、yield-、join-方法有什么区别？为什么-sleep-和-yield-方法是静态（static）的？"><a href="#5-sleep-、yield-、join-方法有什么区别？为什么-sleep-和-yield-方法是静态（static）的？" class="headerlink" title="5 sleep()、yield()、join() 方法有什么区别？为什么 sleep() 和 yield() 方法是静态（static）的？"></a>5 sleep()、yield()、join() 方法有什么区别？为什么 sleep() 和 yield() 方法是静态（static）的？</h2><h3 id="yield"><a href="#yield" class="headerlink" title="yield()"></a>yield()</h3><ul>
-<li>yield()方法和sleep()方法类似，也不会释放“锁标志”，区别在于，它没有参数，即yield()方法只是使当前线程重新回到可执行状态，所以执行yield()的线程有可能在进入到可执行状态后马上又被执行，另外yield()方法只能使同优先级或者高优先级的线程得到执行机会，这也和sleep()方法不同。</li>
-<li>yield() 方法可以让当前正在执行的线程暂停，但它不会阻塞该线程，它只是将该线程从 Running 状态转入 Runnable 状态。</li>
-<li>当某个线程调用了 yield() 方法暂停之后，只有优先级与当前线程相同，或者优先级比当前线程更高的处于就绪状态的线程才会获得执行的机会。<h3 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h3></li>
-<li>sleep() 方法需要指定等待的时间，它可以让当前正在执行的线程在指定的时间内暂停执行，进入 Blocked 状态。</li>
-<li>该方法既可以让其他同优先级或者高优先级的线程得到执行的机会，也可以让低优先级的线程得到执行机会。</li>
-<li>但是，sleep() 方法不会释放“锁标志”，也就是说如果有 synchronized 同步块，其他线程仍然不能访问共享数据。<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3></li>
-<li>join() 方法会使当前线程转入 Blocked 状态，等待调用 join() 方法的线程结束后才能继续执行。</li>
-<li>也就是说 join() 方法会使当前线程等待调用 join() 方法的线程结束后才能继续执行。<h3 id="为什么-sleep-和-yield-方法是静态（static）的？"><a href="#为什么-sleep-和-yield-方法是静态（static）的？" class="headerlink" title="为什么 sleep() 和 yield() 方法是静态（static）的？"></a>为什么 sleep() 和 yield() 方法是静态（static）的？</h3></li>
-<li>Thread 类的 sleep() 和 yield() 方法将处理 Running 状态的线程。所以在其他处于非 Running 状态的线程上执行这两个方法是没有意义的。这就是为什么这些方法是静态的。它们可以在当前正在执行的线程中工作，并避免程序员错误的认为可以在其他非运行线程调用这些方法。(在 run() 方法中直接使用)</li>
-</ul>
-<h2 id="6-wait-方法。"><a href="#6-wait-方法。" class="headerlink" title="6 wait()方法。"></a>6 wait()方法。</h2><ul>
-<li>wait() ， notify() 及 notifyAll() 只能在 synchronized 语句中使用，因为 wait() 会释放锁；<h3 id="notify-和-notifyAll-。"><a href="#notify-和-notifyAll-。" class="headerlink" title="notify() 和 notifyAll()。"></a>notify() 和 notifyAll()。</h3></li>
-<li>notify() 默认的唤醒策略是：先进入 wait() 的线程先被唤醒。</li>
-<li>notifyAll() 唤醒所有的等待线程，默认的唤醒策略是： LIFO （后进先出）。</li>
-<li>notify() 可能导致死锁，notifyAll() 开销大。</li>
-</ul>
-<h2 id="7-说说-sleep-方法和-wait-方法区别和共同点"><a href="#7-说说-sleep-方法和-wait-方法区别和共同点" class="headerlink" title="7 说说 sleep() 方法和 wait() 方法区别和共同点?"></a>7 说说 sleep() 方法和 wait() 方法区别和共同点?</h2><ul>
-<li>两者最主要的区别在于：sleep 方法没有释放锁，而 wait 方法释放了锁 。</li>
-<li>两者都可以暂停线程的执行。</li>
-<li>Wait 通常被用于线程间交互/通信，sleep 通常被用于暂停执行。</li>
-<li>wait() 方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的 notify() 或者 notifyAll() 方法。sleep() 方法执行完成后，线程会自动苏醒。或者可以使用wait(long timeout)超时后线程会自动苏醒。</li>
-</ul>
-<h2 id="8-1-为什么我们调用-start-方法时会执行-run-方法，为什么我们不能直接调用-run-方法？"><a href="#8-1-为什么我们调用-start-方法时会执行-run-方法，为什么我们不能直接调用-run-方法？" class="headerlink" title="8.1 为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？"></a>8.1 为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？</h2><p>这是另一个非常经典的 java 多线程面试问题，而且在面试中会经常被问到。很简单，但是很多人都会答不上来！</p>
-<p>new 一个 Thread，线程进入了新建状态;调用 start() 方法，会启动一个线程并使线程进入了就绪状态，当分配到时间片后就可以开始运行了。 start() 会执行线程的相应准备工作，然后自动执行 run() 方法的内容，这是真正的多线程工作。 而直接执行 run() 方法，会把 run 方法当成一个 main 线程下的普通方法去执行，并不会在某个线程中执行它，所以这并不是多线程工作。</p>
-<p>总结： 调用 start 方法方可启动线程并使线程进入就绪状态，而 run 方法只是 thread 的一个普通方法调用，还是在主线程里执行。</p>
-<h2 id="8-2-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？"><a href="#8-2-start-和-run-有什么区别？可以直接调用-Thread-类的-run-方法么？" class="headerlink" title="8.2 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？"></a>8.2 start() 和 run() 有什么区别？可以直接调用 Thread 类的 run() 方法么？</h2><ul>
-<li>run() 方法是线程的执行体。</li>
-<li>start() 方法负责启动线程，然后 JVM 会让这个线程去执行 run() 方法。<h3 id="可以直接调用-Thread-类的-run-方法么？-1"><a href="#可以直接调用-Thread-类的-run-方法么？-1" class="headerlink" title="可以直接调用 Thread 类的 run() 方法么？"></a>可以直接调用 Thread 类的 run() 方法么？</h3></li>
-<li>可以。但是如果直接调用 Thread 的 run() 方法，它的行为就会和普通的方法一样。</li>
-<li>为了在新的线程中执行我们的代码，必须使用 start() 方法。</li>
-</ul>
-<h2 id="9-Java-的线程优先级如何控制？高优先级的-Java-线程一定先执行吗？"><a href="#9-Java-的线程优先级如何控制？高优先级的-Java-线程一定先执行吗？" class="headerlink" title="9 Java 的线程优先级如何控制？高优先级的 Java 线程一定先执行吗？"></a>9 Java 的线程优先级如何控制？高优先级的 Java 线程一定先执行吗？</h2><p>Java并发_1.7中有相关问题</p>
-<h3 id="Java-中的线程优先级如何控制"><a href="#Java-中的线程优先级如何控制" class="headerlink" title="Java 中的线程优先级如何控制"></a>Java 中的线程优先级如何控制</h3><ul>
-<li>Java 中的线程优先级的范围是 [1,10]，一般来说，高优先级的线程在运行时会具有优先权。可以通过 thread.setPriority(Thread.MAX_PRIORITY) 的方式设置，默认优先级为 5。<h3 id="高优先级的-Java-线程一定先执行吗"><a href="#高优先级的-Java-线程一定先执行吗" class="headerlink" title="高优先级的 Java 线程一定先执行吗"></a>高优先级的 Java 线程一定先执行吗</h3></li>
-<li>即使设置了线程的优先级，也无法保证高优先级的线程一定先执行。</li>
-<li>原因：这是因为 Java 线程优先级依赖于操作系统的支持，然而，不同的操作系统支持的线程优先级并不相同，不能很好的和 Java 中线程优先级一一对应。</li>
-<li>结论：Java 线程优先级控制并不可靠。</li>
-</ul>
-<h2 id="10-什么是守护线程？为什么要用守护线程？如何创建守护线程？"><a href="#10-什么是守护线程？为什么要用守护线程？如何创建守护线程？" class="headerlink" title="10 什么是守护线程？为什么要用守护线程？如何创建守护线程？"></a>10 什么是守护线程？为什么要用守护线程？如何创建守护线程？</h2><h3 id="什么是守护线程"><a href="#什么是守护线程" class="headerlink" title="什么是守护线程"></a>什么是守护线程</h3><ul>
-<li>守护线程（Daemon Thread）是在后台执行并且不会阻止 JVM 终止的线程。</li>
-<li>与守护线程（Daemon Thread）相反的，叫用户线程（User Thread），也就是非守护线程。<h3 id="为什么要用守护线程"><a href="#为什么要用守护线程" class="headerlink" title="为什么要用守护线程"></a>为什么要用守护线程</h3></li>
-<li>守护线程的优先级比较低，用于为系统中的其它对象和线程提供服务。典型的应用就是垃圾回收器。<h3 id="如何创建守护线程"><a href="#如何创建守护线程" class="headerlink" title="如何创建守护线程"></a>如何创建守护线程</h3></li>
-<li>使用 thread.setDaemon(true) 可以设置 thread 线程为守护线程。</li>
-<li>注意点：<ul>
-<li>正在运行的用户线程无法设置为守护线程，所以 thread.setDaemon(true) 必须在 thread.start() 之前设置，否则会抛出 llegalThreadStateException 异常；</li>
-<li>一个守护线程创建的子线程依然是守护线程。</li>
-<li>不要认为所有的应用都可以分配给守护线程来进行服务，比如读写操作或者计算逻辑。</li>
-</ul>
-</li>
-</ul>
-<p>总结：</p>
-<ul>
-<li>用个比较通俗的比如，任何一个守护线程都是整个JVM中所有非守护线程的保姆。</li>
-<li>只要当前JVM实例中尚存在任何一个非守护线程没有结束，守护线程就全部工作；只有当最后一个非守护线程结束时，守护线程随着JVM一同结束工作。Daemon的作用是为其他线程的运行提供便利服务，守护线程最典型的应用就是 GC (垃圾回收器)，它就是一个很称职的守护者。</li>
-<li>User和Daemon两者几乎没有区别，唯一的不同之处就在于虚拟机的离开：如果 User Thread已经全部退出运行了，只剩下Daemon Thread存在了，虚拟机也就退出了。 因为没有了被守护者，Daemon也就没有工作可做了，也就没有继续运行程序的必要了。</li>
-</ul>
-<h2 id="11-线程间是如何通信的？"><a href="#11-线程间是如何通信的？" class="headerlink" title="11 线程间是如何通信的？"></a>11 线程间是如何通信的？</h2><p>当线程间是可以共享资源时，线程间通信是协调它们的重要的手段。Object 类中 wait(), notify() 和 notifyAll() 方法可以用于线程间通信关于资源的锁的状态。</p>
-<h2 id="12-为什么线程通信的方法-wait-notify-和-notifyAll-被定义在-Object-类里？"><a href="#12-为什么线程通信的方法-wait-notify-和-notifyAll-被定义在-Object-类里？" class="headerlink" title="12 为什么线程通信的方法 wait(), notify() 和 notifyAll() 被定义在 Object 类里？"></a>12 为什么线程通信的方法 wait(), notify() 和 notifyAll() 被定义在 Object 类里？</h2><ul>
-<li>Java 的每个对象中都有一个锁(monitor，也可以成为监视器) 并且 wait()、notify() 等方法用于等待对象的锁或者通知其他线程对象的监视器可用。在 Java 的线程中并没有可供任何对象使用的锁和同步器。这就是为什么这些方法是 Object 类的一部分，这样 Java 的每一个类都有用于线程间通信的基本方法</li>
-<li>简单的说，这三个方法的操作对象都是锁级别的。</li>
-</ul>
-<hr>
-<p>此博客参考资料：  </p>
-<ul>
-<li><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">Snailclimb/JavaGuide</a></li>
-<li><a href="https://github.com/CyC2018/CS-Notes" target="_blank" rel="noopener">CyC2018/CS-Notes</a></li>
-<li><a href="https://github.com/dunwu/javacore" target="_blank" rel="noopener">dunwu/javacore</a></li>
-<li><a href="https://github.com/crossoverJie/JCSprout" target="_blank" rel="noopener">crossoverJie/JCSprout</a></li>
-</ul>
-]]></content>
-      
-        <categories>
-            
-            <category> 小知识 </category>
-            
-            <category> Java </category>
-            
-            <category> 并发 </category>
-            
-            <category> 线程 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Java </tag>
-            
-            <tag> 并发 </tag>
-            
-            <tag> 线程 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Java并发]]></title>
-      <url>/2020/09/01/Java%E5%B9%B6%E5%8F%91/</url>
+      <url>/2019/10/11/Java%E5%B9%B6%E5%8F%91/</url>
       <content type="html"><![CDATA[<h1 id="Java并发"><a href="#Java并发" class="headerlink" title="Java并发"></a>Java并发</h1><h2 id="1-并发简介"><a href="#1-并发简介" class="headerlink" title="1.并发简介"></a>1.并发简介</h2><h3 id="1-1-什么是进程？什么是线程？进程和线程的区别是什么？"><a href="#1-1-什么是进程？什么是线程？进程和线程的区别是什么？" class="headerlink" title="1.1.什么是进程？什么是线程？进程和线程的区别是什么？"></a>1.1.什么是进程？什么是线程？进程和线程的区别是什么？</h3><ul>
 <li><p>什么是进程？</p>
 <ul>
@@ -939,149 +1145,6 @@
             <tag> Java </tag>
             
             <tag> 并发 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Java核心技术_ 卷1_ 基础知识]]></title>
-      <url>/2020/08/25/2020-08-25-Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71/</url>
-      <content type="html"><![CDATA[<h1 id="Java核心技术-卷1-基础知识"><a href="#Java核心技术-卷1-基础知识" class="headerlink" title="Java核心技术_ 卷1_ 基础知识"></a>Java核心技术_ 卷1_ 基础知识</h1><h2 id="1-Java-程序设计概述"><a href="#1-Java-程序设计概述" class="headerlink" title="1 Java 程序设计概述"></a>1 Java 程序设计概述</h2><ul>
-<li>1996 年 Java 第一次发布</li>
-<li>Java 关键词<ul>
-<li>简单：Java 语法是 C++ 的“纯净”版本、另一方面是小：基本的解释器以及类支持约40kb，再加上标准类库和线程支持约175kb。</li>
-<li>面向对象：Java 与 C++ 不同于多继承，取而代之是 Java 简单的接口概念。</li>
-<li>网络技能：Java 有扩展的例程库，用于处理 TCP/IP 协议。</li>
-<li>健壮性：编译器可以检测出许多错误，永远不会存取一个“坏的”指针，造成内存分配错误。</li>
-<li>安全性：可以防止运行时堆栈溢出、在自己的处理空间之外破坏内存、未经授权读写文件，有数字签名类。</li>
-<li>体系结构中立：编译器生成中立的目标文件格式，有 JRE 就可以运行这段编译过的代码。</li>
-<li>可移植性：和 C++ 不同，Java 数据类型有固定大小，二进制数据以固定格式进行存储和传输，字符串用 Unicode 格式存储，方便代码移植。</li>
-<li>解释型：即时编译器。解释 -&gt; 翻译员，编译 -&gt; 外国书籍全部翻译好出版。</li>
-<li>高性能：字节码可以在运行时刻快速地翻译成特定 CPU 的机器码。</li>
-<li>多线程：编译简单，把多线程的实现交给底层。</li>
-<li>动态性：库中可以自由添加新方法、变量而客户端不受影响。</li>
-</ul>
-</li>
-<li>发展史<ul>
-<li>98 年 1.2 - GUI 更精细</li>
-<li>00、02 年 1.3、1.4 - 扩展标准类库、提高性能、修正 bug</li>
-<li>04 年 5.0(1.5) - 重大改进，泛型、 受 C# 启发：for each、自动装箱、元数据</li>
-<li>06 年 6 - 性能、类库</li>
-<li>09 年 被 Oracle 收购</li>
-<li>11 年 Java7 - 简单改进</li>
-<li>13 年 Java8</li>
-</ul>
-</li>
-<li>冷知识<ul>
-<li>程序设计语言的成功更多地取决于其支持系统的能力、而不是优美的语法。</li>
-<li>JavaScript 语法类似 Java，除此之外两者无任何关系。</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-Java-的基本程序设计结构"><a href="#3-Java-的基本程序设计结构" class="headerlink" title="3 Java 的基本程序设计结构"></a>3 Java 的基本程序设计结构</h2><ul>
-<li><p>大小写敏感，将 main 写成 Main 程序将无法运行</p>
-</li>
-<li><p>源代码 .java 编译后 .class 并与源文件处于同一目录</p>
-</li>
-<li><p>Java 中的注释不会出现在可执行程序中，和大多数语言一样</p>
-</li>
-<li><p>长整型后缀 L，十六进制数值前缀 0x，八进制前缀 0 (八进制比较容易混淆，不建议使用)， 从 Java7 开始二进制前缀 0b、还可以为数字字面量加下划线（例如 1_000_000) 编译器会去除这些下划线</p>
-</li>
-<li><p>可在 float 类型的数值添加后缀 F、double 类型的数值添加后缀 D</p>
-</li>
-<li><p>浮点数不适用于禁止出现舍入误差的金融计算中，例如 sout（2.0 - 1.1) 将打印出 0.8999~，因为浮点数采用二进制系统表示，没办法精准表示 1/10，应该使用 BigDecimal 类</p>
-</li>
-<li><p>public static void main(String \u005B\u005D args) 这种写法符合语法规则 \u005B 和 \u005D 是 [ 和 ] 的 Unicode 编码</p>
-<blockquote>
-<p> 我试了下 编译器报错，但是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; System.out.println(<span class="string">"public static void main(String \u005B\u005D args)"</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>打印出 public static void main(String [] args)</p>
-</blockquote>
-</li>
-<li><p>整型值和布尔值之间不能进行相互转换</p>
-</li>
-<li><p>声明变量后如果要使用，必须用赋值语句赋值，否则编译器报错</p>
-</li>
-<li><p>n++ 可以， 4++ 不行</p>
-</li>
-<li><p>位运算符：与 &amp;，或 |，亦或 ^，非 ~</p>
-</li>
-<li><p>Math.sqrt(double x) 计算 x 的平方根，Math.pow(double x，double y) 计算 x 的 y 次方，(int)Math.round(double x) 四舍五入</p>
-</li>
-<li><p>&amp;&amp; 的优先级比 || 高；+= 是右结合运算符，a+=b+=c 等价于 a+=（b+=c)</p>
-</li>
-<li><p>Java 中不使用逗号运算符，可以 int i=0，j=1</p>
-</li>
-<li><p>获取用户输入</p>
-<blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">&gt;String s = scanner.nextLine(); <span class="comment">// 还有 next() - 读取一个单词，以空白作为分隔；nextInt() - 一个整型</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>占位符输出 printf</p>
-<blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">float</span> f=<span class="number">11.3456f</span>;</span><br><span class="line">&gt; <span class="keyword">int</span> d=<span class="number">123</span>;</span><br><span class="line">&gt; String s=<span class="string">"我是字符串"</span>;</span><br><span class="line">&gt; <span class="comment">// %8.2f 表示用8个字符的宽度和小数点后两个字符的精度打印 f; %s 字符串;%d 十进制整数</span></span><br><span class="line">&gt; System.out.printf(<span class="string">"浮点数: %8.2f;字符串:%s;十进制整数:%d"</span>,f,s,d); <span class="comment">// 不换行,可以加 \r\n 实现</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>break 根据代码前面的标签冒号可以选择跳出，只能跳出不能跳入</p>
-</li>
-<li><p>BigInteger 大数值</p>
-</li>
-<li><p>快速打印 int[] arr 数组 System.out.println(Arrays.toString(arr))</p>
-</li>
-</ul>
-<h2 id="4-对象与类"><a href="#4-对象与类" class="headerlink" title="4 对象与类"></a>4 对象与类</h2><ul>
-<li>面向对象程序设计（英语：Object-oriented programming，OOP）</li>
-<li>数据结构 + 算法 = 程序 （OOP 思想）</li>
-<li>类之间的关系 - 依赖、聚合（类 A 对象包含类 B 对象）、继承</li>
-<li>封装可以防止随意修改属性值，可以在方法中判断</li>
-<li>获取类里面私有属性时，不要编写返回引用可变对象的访问器方法，不然 private 白给</li>
-<li>this（） 或 this（param）调用本类有参或空惨构造</li>
-<li>finalize 方法将在垃圾回收器清除对象之前调用</li>
-</ul>
-<h2 id="5-继承"><a href="#5-继承" class="headerlink" title="5 继承"></a>5 继承</h2><ul>
-<li><p>超类和子类的前缀 “超” 和 “子” 来源于计算机科学和数学理论中的集合语言的术语</p>
-</li>
-<li><p>子类构造默认调用超类无参构造，如果超类没有没有无参且子类构造没有调用超类有参，则编译器报错</p>
-</li>
-<li><p>动态绑定 - 一个类中可能存在 f（int） 和 f（string），调用 f 时编译器知道该怎么做</p>
-</li>
-<li><p>虚拟机预先为每个类创建了一个方法表，调用方法时候查表就好了，节省时间开销 </p>
-<p>​    假如调用 e.getSalary（）</p>
-<ol>
-<li>提取 e 实际类型的方法表 （Employee、Manager）</li>
-<li>搜索定义 getSalary 签名的类</li>
-<li>虚拟机调用 （入栈…)</li>
-</ol>
-</li>
-<li><p>被 final 修饰的类不可以被继承，且里面的所有方法自动生成为 final 方法（子类就不能覆盖这个方法），而不包括域，域方法也可以被声明为 final，构造对象之后就不允许改变它的值了</p>
-</li>
-<li><p>final 可以避免动态绑定带来的系统开销，不过虚拟机中的即时编译器可以见机行事的进行内联处理（频繁调用且没有真正被覆盖）</p>
-</li>
-<li></li>
-</ul>
-]]></content>
-      
-        <categories>
-            
-            <category> 笔记 </category>
-            
-            <category> Java </category>
-            
-            <category> 基础 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> Java </tag>
-            
-            <tag> 基础 </tag>
             
         </tags>
         

@@ -259,13 +259,12 @@
 </li>
 <li><p>public static void main(String \u005B\u005D args) 这种写法符合语法规则 \u005B 和 \u005D 是 [ 和 ] 的 Unicode 编码</p>
 <blockquote>
-<p> 我试了下 编译器报错，但是</p>
+<p> 我试了下 编译器报错，但是打印出 public static void main(String [] args)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; System.out.println(<span class="string">"public static void main(String \u005B\u005D args)"</span>);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<blockquote>
-<p>打印出 public static void main(String [] args)</p>
-</blockquote>
 </li>
+</ul>
+<ul>
 <li><p>整型值和布尔值之间不能进行相互转换</p>
 </li>
 <li><p>声明变量后如果要使用，必须用赋值语句赋值，否则编译器报错</p>
@@ -294,7 +293,7 @@
 </li>
 <li><p>BigInteger 大数值</p>
 </li>
-<li><p>快速打印 int[] arr 数组 System.out.println(Arrays.toString(arr))</p>
+<li><p>快速打印 int[] arr 数组 System.out.println(Arrays.toString(arr))；多维数组用 Arrays.deepToString()</p>
 </li>
 </ul>
 <h2 id="4-对象与类"><a href="#4-对象与类" class="headerlink" title="4 对象与类"></a>4 对象与类</h2><ul>
@@ -323,9 +322,73 @@
 </li>
 <li><p>被 final 修饰的类不可以被继承，且里面的所有方法自动生成为 final 方法（子类就不能覆盖这个方法），而不包括域，域方法也可以被声明为 final，构造对象之后就不允许改变它的值了</p>
 </li>
+<li><p>被 final 修饰的变量，只能被赋值一次</p>
+</li>
 <li><p>final 可以避免动态绑定带来的系统开销，不过虚拟机中的即时编译器可以见机行事的进行内联处理（频繁调用且没有真正被覆盖）</p>
 </li>
-<li></li>
+<li><p>类之间只能在继承层次内进行转换，且子类不能转换成父类</p>
+</li>
+<li><p>包含一个或多个抽象方法的类本身必须被声明为抽象的，不过类即使不含抽象方法，也可以将类声明为抽象类</p>
+</li>
+<li><p>抽象类不能被实例化（可以多态）</p>
+</li>
+<li><p>不加任何修饰符就是对本包可见</p>
+</li>
+<li><p>String 的散列码是由内容导出的，Objects.hsah(params) 可以组合多个对象的 hash 值</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;     <span class="keyword">int</span> h = hash;</span><br><span class="line">&gt;     <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">&gt;         <span class="keyword">char</span> val[] = value;</span><br><span class="line">&gt; </span><br><span class="line">&gt;         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">&gt;             h = <span class="number">31</span> * h + val[i]; <span class="comment">// 31 是素数，而且二进制好算</span></span><br><span class="line">&gt;         &#125;</span><br><span class="line">&gt;         hash = h;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt;     <span class="keyword">return</span> h;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>对象包装器类是 fianl 类型的，ArrayList<int> 不行，ArrayList<integer> 行！</integer></int></p>
+</li>
+<li><p>如果想编写一个修改数字参数值的方法，可以在 org.omg.CORBA 包中定义一个持有者（holder）类型</p>
+</li>
+<li><p>Integer.paresInt(String s,int radix)，返回 s 表示的 radix 进制的 int</p>
+</li>
+<li><p>Class.forName(className) 和 object.getClass() 和 T.class 返回 Class 实例，.newInstance()  创建实例</p>
+</li>
+<li><p>Modifier.toString(f.getModifiers()) + f.getType().getName()+f.getName() // 最后类似于 private int i，f 是 Field 实例</p>
+</li>
+<li><p>method.invoke(is invoked from, params) // 方法执行 , getMethod(name,class) // 获取 Methode 对象</p>
+</li>
+</ul>
+<h2 id="6-接口与内部类"><a href="#6-接口与内部类" class="headerlink" title="6 接口与内部类"></a>6 接口与内部类</h2><ul>
+<li>克隆又称深拷贝，创建一个内容一致的新对象</li>
+<li>内部类里的方法可以访问包含他们的外部类的域，包括私有数据，内部类可以对同一个包中的其他类隐藏起来</li>
+<li>clone 的默认实现是浅拷贝，深拷贝必选克隆所有可变的实例域， clone 是 protected 修饰的</li>
+<li>想定义一个回调函数而不想写大量代码时可以使用匿名内部类（匿名内部类打包时会生成 …$1.class)</li>
+<li>内部类可访问该类的私有数据</li>
+<li>OuterClass.InnerClass 来引用内部类， outClass.new InnerClass() 来创建内部类实例</li>
+<li>在方法里面定义的类 - 局部内部类，局部内部类不能用 public 或 private 声明，只有该方法知道它的存在</li>
+<li>局部内部类访问的局部变量必须被声明为 final</li>
+<li>匿名内部类 - 只创建这个类的一个对象，就不必命名了，Car car = new Car() { private String carName;……}</li>
+<li>构造器的名字必须与类名相同，所以匿名类不能有构造器，取而代之的是，将构造器参数传递给超类构造器</li>
+<li>找数组的最大值和最小值时需要返回两个数值，这是可以用包含两个值的静态内部类（只有内部类可以声明为 static）</li>
+<li>创建代理对象 Proxy， newProxyInstance 这个方法的三个参数<ol>
+<li>类加载器</li>
+<li>Class 对象数组，每个元素都是需要实现的接口</li>
+<li>调用处理器 InvocationHandler</li>
+</ol>
+</li>
+</ul>
+<h2 id="11-异常、断言、日志和调试"><a href="#11-异常、断言、日志和调试" class="headerlink" title="11 异常、断言、日志和调试"></a>11 异常、断言、日志和调试</h2><ul>
+<li><p>所有的异常都是派生于 Throwable 类，分为 Error（Java运行时系统的内部错误和资源耗尽错误）和 Exception</p>
+</li>
+<li><p>Exception 又分为 RuntimeException 和 IOException</p>
+</li>
+<li><p>try - finally，try 中有 return，在方法返回前，finally 中的内容将被执行，如果 finally 中也有 return，则 finally 中的 return 会覆盖 try 中的 return</p>
+</li>
+<li><p>assert 断言，assert 条件 ，对条件进项检测，如果结果为 false 就会抛出 AssertionError 异常</p>
+</li>
+<li><p>日志代理，以匿名子类实例的形式创建一个代理对象</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; Random generator = <span class="keyword">new</span> Random()&#123;</span><br><span class="line">&gt;     <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">nextDouble</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;         <span class="keyword">double</span> result = <span class="keyword">super</span>.nextDouble();</span><br><span class="line">&gt;         Logger.getGlobal().info(<span class="string">"nextDouble:"</span> + result);</span><br><span class="line">&gt;         <span class="keyword">return</span> result;</span><br><span class="line">&gt;     &#125;</span><br><span class="line">&gt; &#125;;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>泛型在 Class 类中</p>
+<blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">public</span> <span class="keyword">native</span> Class&lt;? <span class="keyword">super</span> T&gt; getSuperclass(); <span class="comment">// 返回 T 的超类</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
 </ul>
 
         </div>
@@ -334,7 +397,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-09-01T03:32:56.062Z" itemprop="dateUpdated">2020-09-01 11:32:56</time>
+    Last updated: <time datetime="2020-09-09T02:24:21.072Z" itemprop="dateUpdated">2020-09-09 10:24:21</time>
 </span><br>
 
 
@@ -403,16 +466,16 @@
         
     </div>
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="prev">
-      <a href="/2020/09/01/Java并发/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Java并发</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
+  
+    <div class="next">
+      <a href="/2020/01/10/指令备忘录/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">指令备忘录</h4>
+      </a>
+    </div>
   
 </nav>
 
@@ -422,7 +485,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java核心技术-卷1-基础知识"><span class="post-toc-number">1.</span> <span class="post-toc-text">Java核心技术_ 卷1_ 基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Java-程序设计概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1 Java 程序设计概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Java-的基本程序设计结构"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">3 Java 的基本程序设计结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-对象与类"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">4 对象与类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-继承"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">5 继承</span></a></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Java核心技术-卷1-基础知识"><span class="post-toc-number">1.</span> <span class="post-toc-text">Java核心技术_ 卷1_ 基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Java-程序设计概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1 Java 程序设计概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Java-的基本程序设计结构"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">3 Java 的基本程序设计结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-对象与类"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">4 对象与类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-继承"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">5 继承</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-接口与内部类"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">6 接口与内部类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-异常、断言、日志和调试"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">11 异常、断言、日志和调试</span></a></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>

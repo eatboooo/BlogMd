@@ -1,5 +1,6 @@
 ---
 title: golang祖安助手
+date: 2019/11/18
 categories:
 - 小知识
 - golang

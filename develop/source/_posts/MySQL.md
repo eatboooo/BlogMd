@@ -1,5 +1,6 @@
 ---
 title: MySQL  
+date: 2019/10/17
 categories:
 - 小知识
 - MySQL

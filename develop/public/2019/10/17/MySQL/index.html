@@ -161,7 +161,7 @@
         <h1 class="title">MySQL</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-10-17T08:19:36.686Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-10-16T16:00:00.000Z" itemprop="datePublished" class="page-time">
   2019-10-17
 </time>
 
@@ -196,7 +196,7 @@
     <div class="post-card">
         <h1 class="post-card-title">MySQL</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-10-17 16:19:36" datetime="2019-10-17T08:19:36.686Z"  itemprop="datePublished">2019-10-17</time>
+            <time class="post-time" title="2019-10-17 00:00:00" datetime="2019-10-16T16:00:00.000Z"  itemprop="datePublished">2019-10-17</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小知识/">小知识</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/小知识/MySQL/">MySQL</a></li></ul></li></ul>
@@ -291,7 +291,7 @@
 <p>事务最经典也经常被拿出来说例子就是转账了。假如小明要给小红转账1000元，这个转账会涉及到两个关键操作就是：将小明的余额减少1000元，将小红的余额增加1000元。万一在这两个操作之间突然出现错误比如银行系统崩溃，导致小明余额减少而小红的余额没有增加，这样就不对了。事务就是保证这两个关键操作要么都成功，要么都要失败。</p>
 <h3 id="事物的四大特性-ACID"><a href="#事物的四大特性-ACID" class="headerlink" title="事物的四大特性(ACID)"></a>事物的四大特性(ACID)</h3><ol>
 <li>原子性（Atomicity）： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；</li>
-<li>一致性（Consistency）：<br> 执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；</li>
+<li>一致性（Consistency）：<br>执行事务前后，数据保持一致，多个事务对同一个数据读取的结果是相同的；</li>
 <li>隔离性（Isolation）：<br>并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间数据库是独立的；</li>
 <li>持久性（Durability）：<br>一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响。<h3 id="并发事务带来哪些问题"><a href="#并发事务带来哪些问题" class="headerlink" title="并发事务带来哪些问题?"></a>并发事务带来哪些问题?</h3>在典型的应用程序中，多个事务并发运行，经常会操作相同的数据来完成各自的任务（多个用户对同一数据进行操作）。并发虽然是必须的，但可能会导致以下的问题。</li>
 </ol>
@@ -396,7 +396,11 @@
 <p>详细内容可以参考： <a href="https://segmentfault.com/a/1190000006158186" target="_blank" rel="noopener">MySQL大表优化方案</a>。</p>
 <h2 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h2><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485097&idx=1&sn=84c89da477b1338bdf3e9fcd65514ac1&chksm=cea24962f9d5c074d8d3ff1ab04ee8f0d6486e3d015cfd783503685986485c11738ccb542ba7&token=79317275&lang=zh_CN#rd" target="_blank" rel="noopener">一条SQL语句在MySQL中如何执行的</a><br><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485117&idx=1&sn=92361755b7c3de488b415ec4c5f46d73&chksm=cea24976f9d5c060babe50c3747616cce63df5d50947903a262704988143c2eeb4069ae45420&token=79317275&lang=zh_CN#rd" target="_blank" rel="noopener">MySQL高性能优化规范建议</a><br><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247485185&idx=1&sn=66ef08b4ab6af5757792223a83fc0d45&chksm=cea248caf9d5c1dc72ec8a281ec16aa3ec3e8066dbb252e27362438a26c33fbe842b0e0adf47&token=79317275&lang=zh_CN#rd" target="_blank" rel="noopener">腾讯面试：一条SQL语句执行得很慢的原因有哪些？—不看后悔系列</a></p>
 <hr>
-<p>此博客参考资料：<br>    Snailclimb / JavaGuide<br>    CyC2018 / CS-Notes</p>
+<p>此博客参考资料：  </p>
+<ul>
+<li><a href="https://github.com/Snailclimb/JavaGuide" target="_blank" rel="noopener">Snailclimb/JavaGuide</a></li>
+<li><a href="https://github.com/CyC2018/CS-Notes" target="_blank" rel="noopener">CyC2018/CS-Notes</a></li>
+</ul>
 
         </div>
         
@@ -404,16 +408,16 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-10-17T09:03:52.552Z" itemprop="dateUpdated">2019-10-17 17:03:52</time>
+    Last updated: <time datetime="2020-09-09T02:24:21.073Z" itemprop="dateUpdated">2020-09-09 10:24:21</time>
 </span><br>
 
 
         
-        转载注明出处，原文地址：<a href="/2019/10/17/MySQL/" target="_blank" rel="external">https://eatboooo.gitee.io/2019/10/17/MySQL/</a>
+        转载注明出处，原文地址：<a href="/2019/10/17/MySQL/" target="_blank" rel="external">https://www.eatboooo.cn/2019/10/17/MySQL/</a>
         
     </div>
     <footer>
-        <a href="https://eatboooo.gitee.io">
+        <a href="https://www.eatboooo.cn">
             <img src="/img/avatar.jpg" alt="Eatboooo">
             Eatboooo
         </a>
@@ -438,7 +442,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://eatboooo.gitee.io/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&pic=https://eatboooo.gitee.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.eatboooo.cn/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&pic=https://www.eatboooo.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -450,7 +454,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://eatboooo.gitee.io/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.eatboooo.cn/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -476,13 +480,20 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="prev">
-      <a href="/2019/10/17/Java并发/" id="post-prev" class="post-nav-link">
+      <a href="/2019/11/01/Java线程/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Java并发</h4>
+        <h4 class="title">Java线程</h4>
       </a>
     </div>
   
 
+  
+    <div class="next">
+      <a href="/2019/10/11/Java并发/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Java并发</h4>
+      </a>
+    </div>
   
 </nav>
 
@@ -549,9 +560,13 @@
     <div class="bottom">
         <p>
             <span>
-                Eatboooo &copy; 2019
+                Eatboooo &copy; 2019 - 2020
             </span>
         		
+           	
+           	<span>
+           		<a href="http://www.miitbeian.gov.cn/" target="_blank">晋ICP备19012747号</a>
+           	</span>
            	
             
             
@@ -585,7 +600,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://eatboooo.gitee.io/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&pic=https://eatboooo.gitee.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.eatboooo.cn/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&pic=https://www.eatboooo.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -597,7 +612,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://eatboooo.gitee.io/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.eatboooo.cn/2019/10/17/MySQL/&title=《MySQL》 — EatbooooBlog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -609,7 +624,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3a0U4DMQwEQP7/p49XpJbrrlOQmkyeKoruMkEyju2vr3hdP9bjT5Jv75/821vevDAwMD6Wcd2u5AX3m358TvL2fG8YGBjnMJJQmITgfIt5WL/fGwYGBsb9FvP0scVjYGBgrDASUpI4JpdeDAwMjPYSmwfc9SvxH97FMTAwPpCRV93///Of9DcwMDA+inGVaxag8xB5jRYGBsbejDzArRT3299p94OBgXECo03aVgYv2kZCXeDDwMDYjtEW4mekZPBi9vlJhouBgbE1Y9bIbEcl2vZA9C0GBsbWjJVyWF7Qbw8rOSYMDIzTGO3j7oNmEnCT4Yl2UAwDA2NXRvvQWVltdhzFMWFgYGzNWLlqtkFz1rws2BgYGJsyZmG06IvGoTMfuSj+DhgYGFswkq0nbchZg3PWbIjOCQMDYyNGm4qtDGS05bwiYcXAwDiAkQTEJKTOQnPbRn0Cw8DA2JqRp1/r1JV0sEg6MTAwNmXkzcVZG3Kl3DYcucDAwNiUsR462xJee7l98W8AAwPjAEZeXFu50LYNzjxAY2BgnMDIy1v5oFibubV7wMDAOIFxlastlrVBNklPi/suBgbGFoyVMHd/fX3XE2alPQwMjP0YbZDNQ/YsVx0mjhgYGAcw2sDXpnRJg3NltxgYGBjt56Sp0A5nvNgzBgYGRvy42SU2P45fjwADA+MAxvrARPLKfKiibkhgYGBszZhdHVtSW0prYRgYGJsyvgF9rCLg+tWaZwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aQW7DMAwEwPz/0ynQc+wsSUlwgNEpaJtq7AMhcvV6xev9v64+J+vq7187Fi4u7pibb3PPvXq85FuJARcX9zx3Xrzua859IUsMuLi4z+QmBe7+4JIUR1xc3N/i5l1JctzBxcV9PjcfZ1QPMb1xyYJeDRcXd8CdD0znn4/Od3FxcQepxKS0zXf5sC8uLu4Rbj7OSJqlvKFKYpVyj4WLi7uBm8QkqxqkSUCLi4u7m9srYfnGk9fx4Se4uLhHuL0DzaQRyl9Ec2CKi4u7iNsrTL0LGfdNTiH5wcXF3cxNQNXrGvmodEEKhIuLu5SbDD7yArRqFHu5Fy4u7kHu/MCx6vG+fBcXF/c4N9mmV6QmTdSH+S4uLu5mbpU1uTzRK4JROcPFxd3A7Z0f5vRRvIqLi3uEm7cxkwerhiXRO8bFxd3MrYYr1QLUS3hwcXFPct/FlUSw84T0yxQHFxd3M7dX+fIjTjMywcXFfQC3enGqGrhWQYX+DBcXdzN3VaEpDz3nlzBwcXEfw+0NQfLHu/zPuLi4D+NWO6pqDBMNVXFxcQ9yqxew8sKXx6uFK1m4uLibufNUdvLb7fNdXFzcGvcPi74P9quPg0wAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

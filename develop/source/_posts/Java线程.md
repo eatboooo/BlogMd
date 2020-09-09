@@ -1,5 +1,6 @@
 ---
 title: Java线程
+date: 2019/11/1
 categories:
 - 小知识
 - Java
