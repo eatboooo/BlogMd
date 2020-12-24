@@ -3,14 +3,396 @@
   
     
     <entry>
+      <title><![CDATA[SQL初级]]></title>
+      <url>/2020/12/17/2020-12-17-SQL%E5%88%9D%E7%BA%A7/</url>
+      <content type="html"><![CDATA[<h1 id="SQL初级"><a href="#SQL初级" class="headerlink" title="SQL初级"></a>SQL初级</h1><h2 id="select"><a href="#select" class="headerlink" title="select"></a>select</h2><ul>
+<li><p>distinct 去重</p>
+</li>
+<li><p>order by desc 由大到小 ，放在语句的最后面</p>
+</li>
+<li><p>like ，%替代0个或多个字符，_ 替代一个字符</p>
+</li>
+<li><p>between</p>
+<ul>
+<li>SELECT <em>column_name(s)</em><br>FROM <em>table_name</em><br>WHERE <em>column_name</em> BETWEEN <em>value1</em> AND <em>value2;</em></li>
+</ul>
+</li>
+<li><p>inner join</p>
+<ul>
+<li>SELECT <em>column_name(s)</em><br>FROM <em>table1</em><br>INNER JOIN <em>table2</em><br>ON <em>table1.column_name</em>=<em>table2.column_name</em>;</li>
+</ul>
+</li>
+<li><p>left join / left outer join ， LEFT JOIN 关键字从左表，也就是第一个表（table1）返回所有的行，即使右表（table2）中没有匹配。如果右表中没有匹配，则结果为 NULL。 （左右其实把表换个位置后一样）</p>
+</li>
+<li><p>full out join ,  上面的 join 全都要</p>
+</li>
+<li><p>union 上下连接住，请注意，UNION 内部的每个 SELECT 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每个 SELECT 语句中的列的顺序必须相同。 UNION 操作符选取不同的值。如果允许重复的值，请使用 UNION ALL。</p>
+</li>
+<li><p>select into  </p>
+<ul>
+<li><p>我们可以复制所有的列插入到新表中</p>
+<p>SELECT *<br>INTO <em>newtable</em> [IN <em>externaldb*]<br>FROM *table1;</em></p>
+</li>
+<li><p>或者只复制希望的列插入到新表中：</p>
+<p>SELECT <em>column_name(s)</em><br>INTO <em>newtable</em> [IN <em>externaldb*]<br>FROM *table1;</em></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h2><p>insert into table_name values(…,…);   //按顺序</p>
+<p>insert into table_name (1,2,3) values (v1,v2,v3);  // 按 前面的 1,2,3</p>
+<h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><p>UPDATE <em>table_name</em><br>SET <em>column1</em>=<em>value1</em>,<em>column2</em>=<em>value2</em>,…<br>WHERE <em>some_column</em>=<em>some_value</em>;</p>
+<h2 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h2><p>DELETE FROM <em>table_name</em><br>WHERE <em>some_column</em>=<em>some_value</em>;</p>
+<p>或</p>
+<p>DELETE * FROM <em>table_name</em>;</p>
+<h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><ul>
+<li>CREATE DATABASE <em>dbname</em>;</li>
+<li>DROP DATABASE database_name</li>
+</ul>
+<h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><ul>
+<li><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line">PersonID <span class="built_in">int</span>,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>)</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (Id_P)  //PRIMARY <span class="keyword">KEY</span>约束</span><br><span class="line">  );</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ul>
+<li><p>通过使用 DROP 语句，可以轻松地删除索引、表和数据库。</p>
+</li>
+<li><p>DROP TABLE table_name</p>
+</li>
+<li><p>如果我们仅仅需要删除表内的数据，但并不删除表本身，那么我们该如何做呢？</p>
+<p>TRUNCATE TABLE table_name </p>
+</li>
+<li><p>ALTER TABLE table_name<br>ADD column_name datatype</p>
+</li>
+<li><p>ALTER TABLE table_name<br>DROP COLUMN column_name</p>
+</li>
+<li><p>MySQL 使用 AUTO_INCREMENT 关键字来执行 auto-increment 任务。</p>
+<p>默认地，AUTO_INCREMENT 的开始值是 1，每条新记录递增 1。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Persons</span><br><span class="line">(</span><br><span class="line"><span class="keyword">ID</span> <span class="built_in">int</span> <span class="keyword">NOT</span> <span class="literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">LastName <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">FirstName <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">Address <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">City <span class="built_in">varchar</span>(<span class="number">255</span>),</span><br><span class="line">PRIMARY <span class="keyword">KEY</span> (<span class="keyword">ID</span>)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> view_name <span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line"><span class="keyword">WHERE</span> condition</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建好视图后，就像表一样使用</li>
+</ul>
+<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2>]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+            <category> Java </category>
+            
+            <category> 基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java初级_常用类库]]></title>
+      <url>/2020/12/11/2020-12-11-Java%E5%88%9D%E7%BA%A7_%E5%B8%B8%E7%94%A8%E7%B1%BB%E5%BA%93/</url>
+      <content type="html"><![CDATA[<h1 id="Java初级-常用类库"><a href="#Java初级-常用类库" class="headerlink" title="Java初级_常用类库"></a>Java初级_常用类库</h1><h2 id="io-包"><a href="#io-包" class="headerlink" title="io 包"></a>io 包</h2><h3 id="File"><a href="#File" class="headerlink" title="File"></a>File</h3><figure class="highlight plain"><figcaption><span>abstract representation of file and directory pathnames.(文件和目录路径名的抽象表示)```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- file.getName()</span><br><span class="line">- file.length()</span><br><span class="line">- file.getPath()</span><br><span class="line">- file.mkdirs()</span><br><span class="line">- file.reName()</span><br><span class="line">- file.delete() ,如果是目录，目录下为空时才可以删除成功</span><br><span class="line">- file.list()</span><br><span class="line">- file.createNewFile() ,当且仅当文件不存在时才可以成功</span><br><span class="line"></span><br><span class="line">### FileInputStream  extend InputStream</span><br><span class="line"></span><br><span class="line">```is meant for reading streams of raw bytes(用于读取原始字节流，例如图像数据。 要读取字符流，请考虑使用FileReader)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>InputStream fis = new FileInputStream(“file.path”); 通过文件路径</li>
+<li>InputStream fis = new FileInputStream(“File file”); 通过文件对象</li>
+<li>fls.read(); 返回下一个字节数据；如果到达文件末尾，则返回-1 </li>
+<li>fls.close(); 关闭文件输入流，释放资源</li>
+</ul>
+<h3 id="FileOutputStream-extend-OutputStream"><a href="#FileOutputStream-extend-OutputStream" class="headerlink" title="FileOutputStream extend OutputStream"></a>FileOutputStream extend OutputStream</h3><p>和 FileInputStream  类似</p>
+<ul>
+<li>OutputStream fis= new FileOutputStream(“file.path”); 通过文件路径</li>
+<li>OutputStream fis= new FileOutputStream(“File file”); 通过文件对象</li>
+<li>fos.write(byte[] b); 将 b.length 个字节从指定 byte 数组写入此文件输出流中</li>
+<li>fos.write(byte[] b, int off, int len); b[off]开始，将len个字节写入文件输出流; b[off+len-1]是此操作写入的最后一个字节</li>
+<li>fos.write(int b); 将指定的字节写入此输出流</li>
+</ul>
+<h3 id="InputStreamReader-extend-Reader"><a href="#InputStreamReader-extend-Reader" class="headerlink" title="InputStreamReader extend Reader"></a>InputStreamReader extend Reader</h3><p><code>An InputStreamReader is a bridge from byte streams to character streams(InputStreamReader是从字节流到字符流的桥梁)</code></p>
+<ul>
+<li>InputStreamReader(InputStream in)</li>
+<li>InputStreamReader(Inputstreamin, charset cs)</li>
+<li>为了达到最高效率，InputStreamReader 通常用法为 BufferedReader in = new BufferedReader(newInputStreamReader(System.in));</li>
+<li>br.read():读取一个字节，返回字节的ASCII码，如果文件读完，则返回-1</li>
+<li>br.readLine():读取一行，返回String 字符串，如果文件读完，则返回null</li>
+</ul>
+<h3 id="OutputStreamWriter-extend-Writer"><a href="#OutputStreamWriter-extend-Writer" class="headerlink" title="OutputStreamWriter extend Writer"></a>OutputStreamWriter extend Writer</h3><p>和 InputStreamReader 类似，不谈</p>
+<ul>
+<li>OutputStreamReader(InputStream in)，</li>
+<li>OutputStreamReader(Inputstream in, charset cs)</li>
+<li>为了达到最高效率，OutputStreamReader通常用法为 BufferedWriter out = new BufferedWriter(newOutputStreamWriter(System.in));</li>
+<li>br.newLine():写入一个行分隔符</li>
+<li>br.write(intc):写入单个字符</li>
+<li>br.write(char[]buff, int off, int len):写入字符数组的一部分</li>
+<li>br.write(Strings, int off, int len):写入字符串的一部分。</li>
+</ul>
+<h2 id="lang-包"><a href="#lang-包" class="headerlink" title="lang 包"></a>lang 包</h2><ul>
+<li>基本数据类型的包装类</li>
+<li>String</li>
+<li>Math</li>
+<li>Class</li>
+<li>Object</li>
+</ul>
+<h3 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h3><ul>
+<li>pow(double a, double b)，return double ， 计算 a 的 b 次方</li>
+<li>sqrt(double numvalue)，return double ， 计算给定值的正平方根</li>
+<li>abs(int numvalue)，return int，计算绝对值，也接收 long、float、double，返回也会改变</li>
+<li>max(-,-)</li>
+<li>min(-,-)</li>
+<li>random(),范围是 [0,1.0) ，return double</li>
+</ul>
+<h3 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h3><ul>
+<li>getClass（） return Class 实例</li>
+<li>getSuperclass（） 不谈</li>
+<li>forName（String className），静态方法，用类名获取实例</li>
+<li>.class ，获取实例，.tyle 获取相对应的基本数据类型的 Class 实例</li>
+</ul>
+<h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><ul>
+<li>equals() ,  == 实现</li>
+<li>finalize（），垃圾回收，调不调用无所谓</li>
+<li>getClass（），和上面呼应上了</li>
+<li>toString（），默认返回地址值</li>
+<li>wait（），让线程进入等待状态，因为锁的级别和类一样，wait（）就放在Object里面</li>
+</ul>
+<h2 id="math-包"><a href="#math-包" class="headerlink" title="math 包"></a>math 包</h2><h3 id="BigDecimal"><a href="#BigDecimal" class="headerlink" title="BigDecimal"></a>BigDecimal</h3><ol>
+<li><p>add(BigDecimal)</p>
+<p>BigDecimal对象中的值相加，返回BigDecimal对象</p>
+</li>
+<li><p>subtract(BigDecimal)</p>
+<p>BigDecimal对象中的值相减，返回BigDecimal对象</p>
+</li>
+<li><p>multiply(BigDecimal)</p>
+<p>BigDecimal对象中的值相乘，返回BigDecimal对象</p>
+</li>
+<li><p>divide(BigDecimal)</p>
+<p>BigDecimal对象中的值相除，返回BigDecimal对象</p>
+</li>
+<li><p>toString()</p>
+<p>将BigDecimal对象中的值转换成字符串</p>
+</li>
+<li><p>doubleValue()</p>
+<p>将BigDecimal对象中的值转换成双精度数</p>
+</li>
+<li><p>floatValue()</p>
+<p>将BigDecimal对象中的值转换成单精度数</p>
+</li>
+<li><p>longValue()</p>
+<p>将BigDecimal对象中的值转换成长整数</p>
+</li>
+<li><p>intValue()</p>
+<p>将BigDecimal对象中的值转换成整数</p>
+</li>
+</ol>
+<h3 id="BigInteger"><a href="#BigInteger" class="headerlink" title="BigInteger"></a>BigInteger</h3><p>和上面差不多</p>
+<h2 id="concurrent-包"><a href="#concurrent-包" class="headerlink" title="concurrent 包"></a>concurrent 包</h2><h2 id="util-包"><a href="#util-包" class="headerlink" title="util 包"></a>util 包</h2>]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+            <category> Java </category>
+            
+            <category> 基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[代码大全]]></title>
+      <url>/2020/12/01/2020-12-1-%E4%BB%A3%E7%A0%81%E5%A4%A7%E5%85%A8/</url>
+      <content type="html"><![CDATA[<h1 id="代码大全"><a href="#代码大全" class="headerlink" title="代码大全"></a>代码大全</h1><h2 id="第七章-高质量的子程序"><a href="#第七章-高质量的子程序" class="headerlink" title="第七章-高质量的子程序"></a>第七章-高质量的子程序</h2><h3 id="创建子程序的正当理由"><a href="#创建子程序的正当理由" class="headerlink" title="创建子程序的正当理由"></a>创建子程序的正当理由</h3><ul>
+<li><p>降低复杂度</p>
+</li>
+<li><p>引入中间、难懂的抽象（面向对象）</p>
+</li>
+<li><p>避免代码重复</p>
+</li>
+<li><p>支持子类化</p>
+</li>
+<li><p>隐藏顺序</p>
+</li>
+<li><p>提高可移植性</p>
+</li>
+<li><p>简化复杂的布尔判断</p>
+</li>
+<li><p>改善性能</p>
+</li>
+<li><p>提高可读性</p>
+</li>
+<li><p>限制变化所带来的影响</p>
+</li>
+<li></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+            <category> Java </category>
+            
+            <category> 基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Java编程思想]]></title>
+      <url>/2020/09/14/2020-09-14-Java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3/</url>
+      <content type="html"><![CDATA[<h1 id="Java编程思想"><a href="#Java编程思想" class="headerlink" title="Java编程思想"></a>Java编程思想</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>Java 与 C++ 相比最核心的变化就是加入了“虚拟机”和“垃圾回收机制”</li>
+</ul>
+<h2 id="1-对象的概念"><a href="#1-对象的概念" class="headerlink" title="1 对象的概念"></a>1 对象的概念</h2><ul>
+<li><p>抽象</p>
+<ol>
+<li>万物皆对象</li>
+<li>程序是一组对象，通过消息传递来告知彼此该做什么</li>
+<li>每个对象都有自己的存储空间，可容纳其他对象</li>
+<li>每个对象都有一种类型</li>
+<li>同一类所有对象都鞥呢接收相同的消息</li>
+</ol>
+<blockquote>
+<p><em>Grady Booch</em> 提供了对对象更简洁的描述：一个对象具有自己的状态，行为和标识。这意味着对象有自己的内部数据(提供状态)、方法 (产生行为)，并彼此区分（每个对象在内存中都有唯一的地址）</p>
+</blockquote>
+</li>
+<li><p>接口</p>
+<ul>
+<li>亚里士多德（<em>Aristotle</em>）大概是第一个认真研究“类型”的哲学家，他曾提出过“鱼类和鸟类”这样的概念。</li>
+</ul>
+</li>
+<li><p>封装</p>
+<ul>
+<li>访问控制<ul>
+<li>让应用程序员不要触摸他们不应该触摸的部分。（请注意，这也是一个哲学决策。部分编程语言认为如果程序员有需要，则应该让他们访问细节部分。）</li>
+<li>使类库的创建者（研发程序员）在不影响后者使用的情况下完善更新工具库。例如，我们开发了一个功能简单的工具类，后来发现可以通过优化代码来提高执行速度。假如工具类的接口和实现部分明确分开并受到保护，那我们就可以轻松地完成改造。</li>
+</ul>
+</li>
+<li>如果你不使用 public、private、protected 这三者，则默认使用 default。default 被称为包访问。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-安装Java和本书用例"><a href="#2-安装Java和本书用例" class="headerlink" title="2 安装Java和本书用例"></a>2 安装Java和本书用例</h2><ul>
+<li><p>发现一个 windows 超好用的程序包管理器 <a href="https://chocolatey.org/" target="_blank" rel="noopener">choco</a></p>
+<blockquote>
+<p>记得用管理员方式运行 powershell.exe</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3-万物皆对象"><a href="#3-万物皆对象" class="headerlink" title="3 万物皆对象"></a>3 万物皆对象</h2><blockquote>
+<p>如果我们说另外一种不同的语言，我们会发觉一个不同的世界！— Ludwig Wittgenstein (1889-1951)</p>
+</blockquote>
+<ul>
+<li><p>对象操纵</p>
+<blockquote>
+<p>“名字代表什么？玫瑰即使不叫玫瑰，也依旧芬芳”。（引用自 莎士比亚，《罗密欧与朱丽叶》）</p>
+</blockquote>
+<ul>
+<li>只要拥有对象的“引用”，就可以操纵该“对象”</li>
+</ul>
+</li>
+<li><p>数据存储</p>
+<ol>
+<li>寄存器（Registers），最快的存储区域，位于 CPU 内部。然而，寄存器的数量十分有限，所以寄存器根据需求进行分配。我们对其没有直接的控制权，也无法再自己的程序里找到寄存器存在的踪迹。（另一方面，C/C++ 允许开发者像编译器建议寄存器的分配）</li>
+<li>栈内存（Stack），存在于常规内存 RAM（随机访问存储器，Random Access Memory）区域中，可以通过栈指针获得处理器的直接支持。栈指针下移分配内存，上移释放内存。这是一种仅次于寄存器的非常快速有效的分配存储方式。创建程序时，Java 系统必须知道栈内保存的所有项的生命周期。这种约束限制了程序的灵活性。因此，虽然在栈内存上存在一些 Java 数据（如对象引用），但 Java 对象本身的数据却是保存在堆内存的。</li>
+<li>堆内存（Heap），这是一种通用的内存池（也在 RAM 区域），所有 Java 对象都存在于其中。与栈内存不同，编译器不需要知道对象必须在堆内存上停留多长时间。因此，用堆内存保存数据更具灵活性。创建一个对象时，只需用 <code>new</code> 命令实例化对象即可，当执行代码时，会自动在堆中进行内存分配。这种灵活性是有代价的：分配和清理堆内存要比栈内存需要更多的时间（如果可以用 Java 在栈内存上创建对象，就像在 C++ 中那样的话）。随着时间的推移，Java 的堆内存分配机制现在已经非常快，因此这不是一个值得关心的问题了。</li>
+<li>常量存储（Constant storage），常量值通常直接放在程序代码中，因为它们永远不会改变。如需严格保护，可考虑将它们置于只读存储器 ROM （只读存储器，Read Only Memory）中。</li>
+<li>非 RAM 存储（Non-RAM storage），数据完全存在于程序之外，在程序未运行以及脱离程序控制后依然存在。两个主要的例子：（1）序列化对象：对象被转换为字节流，通常被发送到另一台机器；（2）持久化对象：对象被放置在磁盘上，即使程序终止，数据依然存在。这些存储的方式都是将对象转存于另一个介质中，并在需要时恢复成常规的、基于 RAM 的对象。Java 为轻量级持久化提供了支持。而诸如 JDBC 和 Hibernate 这些类库为使用数据库存储和检索对象信息提供了更复杂的支持。</li>
+</ol>
+</li>
+<li><p>基本类型的存储</p>
+<ul>
+<li>Java 确定了每种基本类型的内存占用大小。 这些大小不会像其他一些语言那样随着机器环境的变化而变化。这种不变性也是 Java 更具可移植性的一个原因。</li>
+</ul>
+</li>
+<li><p>数组的存储</p>
+<ul>
+<li>Java 的设计主要目标之一是安全性，在 Java 中，数组使用前需要被初始化，并且不能访问数组长度以外的数据。这种范围检查，是以每个数组上少量的内存开销及运行时检查下标的额外时间为代价的，但由此换来的安全性和效率的提高是值得的。（并且 Java 经常可以优化这些操作）</li>
+<li>当我们创建对象数组时，实际上是创建了一个引用数组，并且每个引用的初始值都为 <strong>null</strong> 。</li>
+</ul>
+</li>
+<li><p>作用域</p>
+<ul>
+<li>Java 的变量只有在其作用域内才可用。（作用域就是{}里面的）</li>
+</ul>
+</li>
+<li><p>对象作用域</p>
+<ul>
+<li>Java 对象与基本类型具有不同的生命周期。当我们用 <code>new</code> 关键字来创建 Java 对象是，它的生命周期将会超指出作用域。（Java 有自动回收） </li>
+</ul>
+</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 笔记 </category>
+            
+            <category> Java </category>
+            
+            <category> 基础 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Java </tag>
+            
+            <tag> 基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[个人博客部署指北]]></title>
       <url>/2020/09/09/2020-09-09-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
       <content type="html"><![CDATA[<h1 id="个人博客部署指北"><a href="#个人博客部署指北" class="headerlink" title="个人博客部署指北"></a>个人博客部署指北</h1><h2 id="个人博客概述"><a href="#个人博客概述" class="headerlink" title="个人博客概述"></a>个人博客概述</h2><p>记录生活、学习笔记，方便以后查看和总结（没有）</p>
 <h2 id="走起来瓷儿"><a href="#走起来瓷儿" class="headerlink" title="走起来瓷儿"></a>走起来瓷儿</h2><h3 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h3><p>我们直接去 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Nodejs 官网</a> 安装，点击下载推荐给大多数用户的版本</p>
 <h3 id="安装-Git"><a href="#安装-Git" class="headerlink" title="安装 Git"></a>安装 Git</h3><p>直奔 <a href="https://git-scm.com/" target="_blank" rel="noopener">Git 官网</a> 点击右侧电视下载</p>
 <h3 id="创建-Git-仓库"><a href="#创建-Git-仓库" class="headerlink" title="创建 Git 仓库"></a>创建 Git 仓库</h3><ul>
-<li>Gitee 是国内的，所以用来部署个人博客比较好，不会太卡。首先直奔 <a href="https://gitee.com/" target="_blank" rel="noopener">Gitee 官网</a> 注册</li>
-<li>登陆后阅读 Gitee <a href="https://gitee.com/help/articles/4136#article-header0" target="_blank" rel="noopener">帮助文档</a> 创建仓库</li>
+<li>Gitee 是国内的，所以用来部署个人博客比较好，不会太卡。首先直奔 <a href="https://gitee.com/">Gitee 官网</a> 注册</li>
+<li>登陆后阅读 Gitee <a href="https://gitee.com/help/articles/4136#article-header0">帮助文档</a> 创建仓库</li>
 <li>使用 HTTP clone，用户名是 Gitee 登陆名， 或者配置 <a href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5" target="_blank" rel="noopener">SSH 公钥</a> （有点麻烦）</li>
 </ul>
 <h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>在 cmd 命令行（ ctrl + r -&gt; cmd）输入</p>
@@ -46,7 +428,10 @@
     <entry>
       <title><![CDATA[Java核心技术_ 卷1_ 基础知识]]></title>
       <url>/2020/08/25/2020-08-25-Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71/</url>
-      <content type="html"><![CDATA[<h1 id="Java核心技术-卷1-基础知识"><a href="#Java核心技术-卷1-基础知识" class="headerlink" title="Java核心技术_ 卷1_ 基础知识"></a>Java核心技术_ 卷1_ 基础知识</h1><h2 id="1-Java-程序设计概述"><a href="#1-Java-程序设计概述" class="headerlink" title="1 Java 程序设计概述"></a>1 Java 程序设计概述</h2><ul>
+      <content type="html"><![CDATA[<p>枚举类</p>
+<p>接口与抽象类</p>
+<p>访问权限修饰符</p>
+<h1 id="Java核心技术-卷1-基础知识"><a href="#Java核心技术-卷1-基础知识" class="headerlink" title="Java核心技术_ 卷1_ 基础知识"></a>Java核心技术_ 卷1_ 基础知识</h1><h2 id="1-Java-程序设计概述"><a href="#1-Java-程序设计概述" class="headerlink" title="1 Java 程序设计概述"></a>1 Java 程序设计概述</h2><ul>
 <li>1996 年 Java 第一次发布</li>
 <li>Java 关键词<ul>
 <li>简单：Java 语法是 C++ 的“纯净”版本、另一方面是小：基本的解释器以及类支持约40kb，再加上标准类库和线程支持约175kb。</li>

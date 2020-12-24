@@ -79,8 +79,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repo: git@111.231.250.175:/var/repo/blog.git
-  branch: master
-- type: git
   repo: git@gitee.com:eatboooo/eatboooo.git
   branch: master
