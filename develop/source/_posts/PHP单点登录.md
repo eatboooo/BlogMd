@@ -12,7 +12,7 @@ description: 使用redis+cookie完成登录状态的保持  #次标题
 ---
 # PHP单点登录
 ## 结构概览
-![项目组成](http://111.231.250.175/img/thumb/PHP_login_makeup.jpg)
+![项目组成](https://gitee.com/eatboooo/BlogMd/raw/master/img/PHP_login_makeup.jpg)
 ### 连接数据库
 首先建立数据库连接，用于登录校验以及注册添加。
 > db_config.php
