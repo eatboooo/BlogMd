@@ -17,7 +17,7 @@ Java 并发中线程的基础知识整理。
 Java 多线程中的三大特性：原子性，可见性，顺序性。
 
 ## 1 Java 线程生命周期中有哪些状态？各状态之间如何切换？
-![java_thread_status](http://111.231.250.175/img/thumb/java_thread_status.png)  
+![java_thread_status](https://gitee.com/eatboooo/BlogMd/raw/master/img/java_thread_status.png)  
 java.lang.Thread.State 中定义了 6 种不同的线程状态，在给定的一个时刻，线程只能处于其中的一个状态。  
 - 开始（New） - 还没有调用 start() 方法的线程处于此状态。
 - 可运行（Runnable） - 已经调用了 start() 方法的线程状态。此状态意味着，线程已经准备好了，一旦被线程调度器分配了 CPU 时间片，就可以运行线程。
