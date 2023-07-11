@@ -8,7 +8,7 @@ categories:
 tags:
 - Java
 - JVM
-src: //tvax4.sinaimg.cn/large/0074GEKogy1gsmlqzixt6j318g0p0tlp.jpg
+src: //eatboooo.gitee.io/img/background/common_01_h.png
 ---
 
 # JVM 02
@@ -48,8 +48,6 @@ src: //tvax4.sinaimg.cn/large/0074GEKogy1gsmlqzixt6j318g0p0tlp.jpg
   4. 栈如果放不下 ，如果不大，线程本地分配不下，Edge 区～GC，之后老年代
 
 # 使用JavaAgent测试Object的大小
-
-作者：马士兵 http://www.mashibing.com
 
 ## 对象大小（64位机）
 
@@ -122,7 +120,7 @@ java -XX:+PrintCommandLineFlags -version
 7. 如何使用该类：
 
    ```java
-   ​```java
+   ```java
       package com.mashibing.jvm.c3_jmm;
       
       import com.mashibing.jvm.agent.ObjectSizeAgent;

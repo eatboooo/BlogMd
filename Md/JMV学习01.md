@@ -8,7 +8,7 @@ categories:
 tags:
 - Java
 - JVM
-src: //tva2.sinaimg.cn/large/0074GEKogy1gsmlqxlyzbj318g0p0hdu.jpg
+src: //eatboooo.gitee.io/img/background/common_01_h.png
 ---
 
 # JVM 01
@@ -115,7 +115,7 @@ src: //tva2.sinaimg.cn/large/0074GEKogy1gsmlqxlyzbj318g0p0hdu.jpg
 
 ## JMM（java 内存模型）
 
-![存储器层次结构](http://tva4.sinaimg.cn/large/0074GEKogy1gsi295qk4hj312e0ks4cv.jpg)
+![存储器层次结构](http://cdn.cdnjson.com/tva4.sinaimg.cn/large/0074GEKogy1gsi295qk4hj312e0ks4cv.jpg)
 
 ### 硬件层数据一致性
 
@@ -171,13 +171,13 @@ JVM级别如何规范（JSR133）
 > StoreStore屏障：
 >
 > 	对于这样的语句Store1; StoreStore; Store2，
-> 						
+> 								
 > 	在Store2及后续写入操作执行前，保证Store1的写入操作对其它处理器可见。
 >
 > LoadStore屏障：
 >
 > 	对于这样的语句Load1; LoadStore; Store2，
-> 						
+> 								
 > 	在Store2及后续写入操作被刷出前，保证Load1要读取的数据被读取完毕。
 >
 > StoreLoad屏障：

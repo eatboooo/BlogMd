@@ -10,7 +10,7 @@ tags:
 - Java
 - 并发
 - 线程
-src: //tva1.sinaimg.cn/large/0074GEKogy1gs7jp0mw14j30zk0k04qp.jpg
+src: //eatboooo.gitee.io/img/background/common_01_h.png
 ---
 # Java 多线程系统学习 01
 

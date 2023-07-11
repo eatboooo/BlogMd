@@ -10,7 +10,7 @@ tags:
 - Java
 - 并发
 - 线程
-src: //tva4.sinaimg.cn/large/0074GEKogy1gs7jp2i6kdj30zk0k048k.jpg
+src: //eatboooo.gitee.io/img/background/common_01_h.png
 ---
 <meta name="referrer" content="no-referrer"/>
 
